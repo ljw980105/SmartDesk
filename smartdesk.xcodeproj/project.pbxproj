@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6691F216DBB4A00B8795A /* AppDelegate.swift */; };
+		04B66922216DBB4A00B8795A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66921216DBB4A00B8795A /* ViewController.swift */; };
+		04B66925216DBB4A00B8795A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66923216DBB4A00B8795A /* Main.storyboard */; };
+		04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B66926216DBB4F00B8795A /* Assets.xcassets */; };
+		04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */; };
+		04B66935216DBB4F00B8795A /* smartdeskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66934216DBB4F00B8795A /* smartdeskTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04B66931216DBB4F00B8795A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04B66914216DBB4A00B8795A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04B6691B216DBB4A00B8795A;
+			remoteInfo = smartdesk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04B6691C216DBB4A00B8795A /* smartdesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartdesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B6691F216DBB4A00B8795A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04B66921216DBB4A00B8795A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04B66924216DBB4A00B8795A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04B66926216DBB4F00B8795A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04B66929216DBB4F00B8795A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04B6692B216DBB4F00B8795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B66930216DBB4F00B8795A /* smartdeskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smartdeskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B66934216DBB4F00B8795A /* smartdeskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smartdeskTests.swift; sourceTree = "<group>"; };
+		04B66936216DBB4F00B8795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04B66919216DBB4A00B8795A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04B6692D216DBB4F00B8795A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04B66913216DBB4A00B8795A = {
+			isa = PBXGroup;
+			children = (
+				04B6691E216DBB4A00B8795A /* smartdesk */,
+				04B66933216DBB4F00B8795A /* smartdeskTests */,
+				04B6691D216DBB4A00B8795A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04B6691D216DBB4A00B8795A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04B6691C216DBB4A00B8795A /* smartdesk.app */,
+				04B66930216DBB4F00B8795A /* smartdeskTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04B6691E216DBB4A00B8795A /* smartdesk */ = {
+			isa = PBXGroup;
+			children = (
+				04B6691F216DBB4A00B8795A /* AppDelegate.swift */,
+				04B66921216DBB4A00B8795A /* ViewController.swift */,
+				04B66923216DBB4A00B8795A /* Main.storyboard */,
+				04B66926216DBB4F00B8795A /* Assets.xcassets */,
+				04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */,
+				04B6692B216DBB4F00B8795A /* Info.plist */,
+			);
+			path = smartdesk;
+			sourceTree = "<group>";
+		};
+		04B66933216DBB4F00B8795A /* smartdeskTests */ = {
+			isa = PBXGroup;
+			children = (
+				04B66934216DBB4F00B8795A /* smartdeskTests.swift */,
+				04B66936216DBB4F00B8795A /* Info.plist */,
+			);
+			path = smartdeskTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04B6691B216DBB4A00B8795A /* smartdesk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04B66939216DBB4F00B8795A /* Build configuration list for PBXNativeTarget "smartdesk" */;
+			buildPhases = (
+				04B66918216DBB4A00B8795A /* Sources */,
+				04B66919216DBB4A00B8795A /* Frameworks */,
+				04B6691A216DBB4A00B8795A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = smartdesk;
+			productName = smartdesk;
+			productReference = 04B6691C216DBB4A00B8795A /* smartdesk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04B6692F216DBB4F00B8795A /* smartdeskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04B6693C216DBB4F00B8795A /* Build configuration list for PBXNativeTarget "smartdeskTests" */;
+			buildPhases = (
+				04B6692C216DBB4F00B8795A /* Sources */,
+				04B6692D216DBB4F00B8795A /* Frameworks */,
+				04B6692E216DBB4F00B8795A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04B66932216DBB4F00B8795A /* PBXTargetDependency */,
+			);
+			name = smartdeskTests;
+			productName = smartdeskTests;
+			productReference = 04B66930216DBB4F00B8795A /* smartdeskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04B66914216DBB4A00B8795A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Jing Wei Li";
+				TargetAttributes = {
+					04B6691B216DBB4A00B8795A = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					04B6692F216DBB4F00B8795A = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 04B6691B216DBB4A00B8795A;
+					};
+				};
+			};
+			buildConfigurationList = 04B66917216DBB4A00B8795A /* Build configuration list for PBXProject "smartdesk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04B66913216DBB4A00B8795A;
+			productRefGroup = 04B6691D216DBB4A00B8795A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04B6691B216DBB4A00B8795A /* smartdesk */,
+				04B6692F216DBB4F00B8795A /* smartdeskTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04B6691A216DBB4A00B8795A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */,
+				04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */,
+				04B66925216DBB4A00B8795A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04B6692E216DBB4F00B8795A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04B66918216DBB4A00B8795A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B66922216DBB4A00B8795A /* ViewController.swift in Sources */,
+				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04B6692C216DBB4F00B8795A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B66935216DBB4F00B8795A /* smartdeskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04B66932216DBB4F00B8795A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04B6691B216DBB4A00B8795A /* smartdesk */;
+			targetProxy = 04B66931216DBB4F00B8795A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04B66923216DBB4A00B8795A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04B66924216DBB4A00B8795A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04B66929216DBB4F00B8795A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04B66937216DBB4F00B8795A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04B66938216DBB4F00B8795A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04B6693A216DBB4F00B8795A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NDBTK98VL3;
+				INFOPLIST_FILE = smartdesk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.smartdesk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04B6693B216DBB4F00B8795A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NDBTK98VL3;
+				INFOPLIST_FILE = smartdesk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.smartdesk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04B6693D216DBB4F00B8795A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NDBTK98VL3;
+				INFOPLIST_FILE = smartdeskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.smartdeskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smartdesk.app/smartdesk";
+			};
+			name = Debug;
+		};
+		04B6693E216DBB4F00B8795A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NDBTK98VL3;
+				INFOPLIST_FILE = smartdeskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.smartdeskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smartdesk.app/smartdesk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04B66917216DBB4A00B8795A /* Build configuration list for PBXProject "smartdesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04B66937216DBB4F00B8795A /* Debug */,
+				04B66938216DBB4F00B8795A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04B66939216DBB4F00B8795A /* Build configuration list for PBXNativeTarget "smartdesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04B6693A216DBB4F00B8795A /* Debug */,
+				04B6693B216DBB4F00B8795A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04B6693C216DBB4F00B8795A /* Build configuration list for PBXNativeTarget "smartdeskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04B6693D216DBB4F00B8795A /* Debug */,
+				04B6693E216DBB4F00B8795A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04B66914216DBB4A00B8795A /* Project object */;
+}
