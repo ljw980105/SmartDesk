@@ -8,13 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, BLEManagerDelegate {
+    @IBOutlet weak var sendDataButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        BLEManager.current.delegate = self
+        sendDataButton.isHidden = true
+    }
+    
+    func readyToSendData() {
+        sendDataButton.isHidden = false
     }
 
-
+    @IBAction func sendData(_ sender: UIButton) {
+        BLEManager.current.send(data: "A")
+    }
+    
 }
 

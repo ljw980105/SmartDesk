@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */; };
 		04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6691F216DBB4A00B8795A /* AppDelegate.swift */; };
 		04B66922216DBB4A00B8795A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66921216DBB4A00B8795A /* ViewController.swift */; };
 		04B66925216DBB4A00B8795A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66923216DBB4A00B8795A /* Main.storyboard */; };
 		04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B66926216DBB4F00B8795A /* Assets.xcassets */; };
 		04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */; };
 		04B66935216DBB4F00B8795A /* smartdeskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66934216DBB4F00B8795A /* smartdeskTests.swift */; };
+		04B66941216DBD3300B8795A /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
+		04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66942216DC64600B8795A /* BLEManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.debug.xcconfig"; sourceTree = "<group>"; };
 		04B6691C216DBB4A00B8795A /* smartdesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartdesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B6691F216DBB4A00B8795A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B66921216DBB4A00B8795A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		04B66930216DBB4F00B8795A /* smartdeskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smartdeskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B66934216DBB4F00B8795A /* smartdeskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smartdeskTests.swift; sourceTree = "<group>"; };
 		04B66936216DBB4F00B8795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B66940216DBD3300B8795A /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		04B66942216DC64600B8795A /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
+		B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,8 @@
 				04B6691E216DBB4A00B8795A /* smartdesk */,
 				04B66933216DBB4F00B8795A /* smartdeskTests */,
 				04B6691D216DBB4A00B8795A /* Products */,
+				FA36F3A1BFF161C4E9ACE9AD /* Pods */,
+				F12199BE41D7D19E9900C053 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +88,7 @@
 		04B6691E216DBB4A00B8795A /* smartdesk */ = {
 			isa = PBXGroup;
 			children = (
+				04B6693F216DBD0F00B8795A /* Model Classes */,
 				04B6691F216DBB4A00B8795A /* AppDelegate.swift */,
 				04B66921216DBB4A00B8795A /* ViewController.swift */,
 				04B66923216DBB4A00B8795A /* Main.storyboard */,
@@ -96,6 +108,32 @@
 			path = smartdeskTests;
 			sourceTree = "<group>";
 		};
+		04B6693F216DBD0F00B8795A /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				04B66940216DBD3300B8795A /* BLEManager.swift */,
+				04B66942216DC64600B8795A /* BLEManagerDelegate.swift */,
+			);
+			path = "Model Classes";
+			sourceTree = "<group>";
+		};
+		F12199BE41D7D19E9900C053 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA36F3A1BFF161C4E9ACE9AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */,
+				CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,6 +141,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B66939216DBB4F00B8795A /* Build configuration list for PBXNativeTarget "smartdesk" */;
 			buildPhases = (
+				4DD176FF4ABC5BBCE817498E /* [CP] Check Pods Manifest.lock */,
 				04B66918216DBB4A00B8795A /* Sources */,
 				04B66919216DBB4A00B8795A /* Frameworks */,
 				04B6691A216DBB4A00B8795A /* Resources */,
@@ -192,12 +231,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4DD176FF4ABC5BBCE817498E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-smartdesk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04B66918216DBB4A00B8795A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */,
 				04B66922216DBB4A00B8795A /* ViewController.swift in Sources */,
+				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
 				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +420,7 @@
 		};
 		04B6693A216DBB4F00B8795A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -376,6 +439,7 @@
 		};
 		04B6693B216DBB4F00B8795A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
