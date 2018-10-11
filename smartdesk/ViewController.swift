@@ -14,16 +14,25 @@ class ViewController: UIViewController, BLEManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         BLEManager.current.delegate = self
-        sendDataButton.isHidden = true
+    }
+    
+    func didReceiveError(error: BLEError?) {
+        error?.handleError()
+        BLEManager.current.delegate = nil
+        dismiss(animated: true, completion: nil)
     }
     
     func readyToSendData() {
-        sendDataButton.isHidden = false
+        //sendDataButton.isHidden = false
     }
 
     @IBAction func sendData(_ sender: UIButton) {
-        BLEManager.current.send(data: "A")
+        BLEManager.current.send(string: "A")
     }
     
 }

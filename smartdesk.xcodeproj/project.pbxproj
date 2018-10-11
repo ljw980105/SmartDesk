@@ -16,6 +16,9 @@
 		04B66935216DBB4F00B8795A /* smartdeskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66934216DBB4F00B8795A /* smartdeskTests.swift */; };
 		04B66941216DBD3300B8795A /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
 		04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66942216DC64600B8795A /* BLEManagerDelegate.swift */; };
+		04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66944216E992A00B8795A /* ConnectionViewController.swift */; };
+		04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */; };
+		04B6694A216EA2E300B8795A /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66949216EA2E300B8795A /* BLEError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		04B66936216DBB4F00B8795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B66940216DBD3300B8795A /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		04B66942216DC64600B8795A /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
+		04B66944216E992A00B8795A /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
+		04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
+		04B66949216EA2E300B8795A /* BLEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,8 +94,10 @@
 		04B6691E216DBB4A00B8795A /* smartdesk */ = {
 			isa = PBXGroup;
 			children = (
+				04B66946216EA26A00B8795A /* Shared */,
 				04B6693F216DBD0F00B8795A /* Model Classes */,
 				04B6691F216DBB4A00B8795A /* AppDelegate.swift */,
+				04B66944216E992A00B8795A /* ConnectionViewController.swift */,
 				04B66921216DBB4A00B8795A /* ViewController.swift */,
 				04B66923216DBB4A00B8795A /* Main.storyboard */,
 				04B66926216DBB4F00B8795A /* Assets.xcassets */,
@@ -113,8 +121,17 @@
 			children = (
 				04B66940216DBD3300B8795A /* BLEManager.swift */,
 				04B66942216DC64600B8795A /* BLEManagerDelegate.swift */,
+				04B66949216EA2E300B8795A /* BLEError.swift */,
 			);
 			path = "Model Classes";
+			sourceTree = "<group>";
+		};
+		04B66946216EA26A00B8795A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		F12199BE41D7D19E9900C053 /* Frameworks */ = {
@@ -145,6 +162,7 @@
 				04B66918216DBB4A00B8795A /* Sources */,
 				04B66919216DBB4A00B8795A /* Frameworks */,
 				04B6691A216DBB4A00B8795A /* Resources */,
+				1F307DDFCD7C238725EE1A63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,6 +250,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F307DDFCD7C238725EE1A63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4DD176FF4ABC5BBCE817498E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,8 +295,11 @@
 			files = (
 				04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */,
 				04B66922216DBB4A00B8795A /* ViewController.swift in Sources */,
+				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
+				04B6694A216EA2E300B8795A /* BLEError.swift in Sources */,
 				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
+				04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -408,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

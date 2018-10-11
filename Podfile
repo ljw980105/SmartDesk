@@ -7,6 +7,7 @@ target 'smartdesk' do
 
   # Pods for smartdesk
     # pod 'JLActivityIndicator'
+    pod 'SwiftMessages'
 
 
 end

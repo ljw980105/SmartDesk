@@ -32,7 +32,16 @@ class BLEManager: NSObject {
     
     // MARK: Instance methods
     func connect() {
-        bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
+        if bluetoothManager.state == .poweredOn {
+            bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.delegate?.didReceiveError(error:
+                        BLEError.error(fromBLEState: strongSelf.bluetoothManager.state))
+                }
+            }
+        }
     }
     
     func disconnect() {
@@ -46,12 +55,13 @@ class BLEManager: NSObject {
         }
     }
     
-    func send(data stringData: String) {
+    func send(string: String) {
         guard let peripheral = smartDesk, let characteristic = smartDeskDataPoint else {
             print("Not ready to send data")
             return
         }
-        peripheral.writeValue(stringData.data(using: String.Encoding.utf8)!,
+        // note: will not work using the .withResponse type
+        peripheral.writeValue(string.data(using: String.Encoding.utf8)!,
                               for: characteristic, type: .withoutResponse)
     }
 }
@@ -61,21 +71,7 @@ extension BLEManager: CBCentralManagerDelegate {
     // MARK: - CBCentralManagerDelegate
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        switch central.state {
-        case .unknown:
-            print("BLE Manager Unknown State")
-        case .resetting:
-            print("BLE Manager Reset State")
-        case .unsupported:
-            print("BLE Manager Unsupported State")
-        case .unauthorized:
-            print("BLE Manager Unauthorized State")
-        case .poweredOff:
-            print("BLE Manager Powered off State")
-        case .poweredOn:
-            print("BLE Manager Powered on State")
-            bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
-        }
+        handle(updatedState: central.state)
     }
     
     func centralManager(_ central: CBCentralManager,
@@ -93,9 +89,35 @@ extension BLEManager: CBCentralManagerDelegate {
         smartDesk?.delegate = self
         smartDesk?.discoverServices([bleModuleUUID])
     }
+    
+    func centralManager(_ central: CBCentralManager,
+                        didDisconnectPeripheral peripheral: CBPeripheral,
+                        error: Error?) {
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.didReceiveError(error: .peripheralDisconnected)
+        }
+    }
+    
+    func handle(updatedState state: CBManagerState) {
+        DispatchQueue.main.async { [weak self] in
+            switch state {
+            case .poweredOff:
+                print("BLE Manager Powered off State")
+                self?.delegate?.didReceiveError(error: .bluetoothOff)
+            case .poweredOn:
+                print("BLE Manager Powered on State")
+                self?.delegate?.didPrepareToConnect()
+            default:
+                if let error = BLEError.error(fromBLEState: state) {
+                    self?.delegate?.didReceiveError(error: error)
+                }
+            }
+        }
+    }
 }
 
 extension BLEManager: CBPeripheralDelegate {
+    // MARK: - CBPeripheralDelegate
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
@@ -111,7 +133,7 @@ extension BLEManager: CBPeripheralDelegate {
                     error: Error?) {
         guard error == nil else {
             DispatchQueue.main.async { [weak self] in
-                self?.delegate?.didReceiveError(error: error)
+                self?.delegate?.didReceiveError(error: .genericError(error: error))
             }
             return
         }
@@ -120,6 +142,5 @@ extension BLEManager: CBPeripheralDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()
         }
-        
     }
 }

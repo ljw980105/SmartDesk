@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T6q-VT-uG0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Connection View Controller-->
+        <scene sceneID="MwU-4a-izZ">
+            <objects>
+                <viewController id="T6q-VT-uG0" customClass="ConnectionViewController" customModule="smartdesk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfn-2i-Acu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HexapiLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Hnq-fS-m1I">
+                                <rect key="frame" x="67.5" y="123.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Sew-Mx-KRP"/>
+                                    <constraint firstAttribute="width" constant="240" id="dge-5T-HJE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-Oz-tc3">
+                                <rect key="frame" x="91" y="461" width="193" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="NAk-fp-ZtE"/>
+                                    <constraint firstAttribute="width" constant="193" id="ubt-5p-XcD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="connect:" destination="T6q-VT-uG0" eventType="touchUpInside" id="dTQ-UF-AGu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hnq-fS-m1I" firstAttribute="centerY" secondItem="oz3-CY-xM7" secondAttribute="centerY" constant="-100" id="4MB-JQ-FBc"/>
+                            <constraint firstItem="ghr-Oz-tc3" firstAttribute="centerX" secondItem="oz3-CY-xM7" secondAttribute="centerX" id="MwJ-x1-EWW"/>
+                            <constraint firstItem="oz3-CY-xM7" firstAttribute="bottom" secondItem="ghr-Oz-tc3" secondAttribute="bottom" multiplier="13:10" id="drs-rg-Tz1"/>
+                            <constraint firstItem="Hnq-fS-m1I" firstAttribute="centerX" secondItem="oz3-CY-xM7" secondAttribute="centerX" id="zOC-8a-5Pn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oz3-CY-xM7"/>
+                    </view>
+                    <connections>
+                        <outlet property="connectButton" destination="ghr-Oz-tc3" id="8CV-ZJ-3Vl"/>
+                        <outlet property="logo" destination="Hnq-fS-m1I" id="IlM-wn-kg2"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="successfulConnection" modalTransitionStyle="crossDissolve" id="x1F-Gz-X87"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbe-ig-kqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-650.39999999999998" y="42.728635682158924"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -38,6 +88,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="214" y="43"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HexapiLogo" width="1024" height="1024"/>
+    </resources>
 </document>
