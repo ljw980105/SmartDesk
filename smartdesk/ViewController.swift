@@ -22,7 +22,7 @@ class ViewController: UIViewController, BLEManagerDelegate {
     }
     
     func didReceiveError(error: BLEError?) {
-        error?.handleError()
+        error?.showErrorMessage()
         BLEManager.current.delegate = nil
         dismiss(animated: true, completion: nil)
     }

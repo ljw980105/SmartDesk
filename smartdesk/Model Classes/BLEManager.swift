@@ -16,6 +16,8 @@ class BLEManager: NSObject {
     
     static let current = BLEManager()
     
+    weak var delegate: BLEManagerDelegate?
+    
     private var bluetoothManager: CBCentralManager!
     private var smartDesk: CBPeripheral?
     private var smartDeskDataPoint: CBCharacteristic?
@@ -23,7 +25,10 @@ class BLEManager: NSObject {
     private let bleModuleUUID = CBUUID(string: "0xFFE0") // gorgeous!
     private let bleCharacteristicUUID = CBUUID(string: "0xFFE1")
     
-    weak var delegate: BLEManagerDelegate?
+    private let timeOutInterval: TimeInterval = 5.0
+    
+    // if the connection request last more than 5s, then let the delegate know of the timeout error.
+    private var timeOutTimer: Timer!
     
     override init() {
         super.init()
@@ -34,6 +39,11 @@ class BLEManager: NSObject {
     func connect() {
         if bluetoothManager.state == .poweredOn {
             bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
+            timeOutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
+                                                repeats: false) { [weak self] _ in
+                self?.delegate?.didReceiveError(error: .timeOut)
+                self?.bluetoothManager.stopScan()
+            }
         } else {
             DispatchQueue.main.async { [weak self] in
                 if let strongSelf = self {
@@ -139,6 +149,8 @@ extension BLEManager: CBPeripheralDelegate {
         }
         guard let characteristics = service.characteristics, characteristics.count == 1 else { return }
         smartDeskDataPoint = characteristics.first!
+        // at this point, cancel the timeout error message
+        timeOutTimer.invalidate()
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()
         }

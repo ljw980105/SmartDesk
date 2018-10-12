@@ -50,7 +50,7 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate {
     // MARK: - BLEManagerDelegate
     
     func didReceiveError(error: BLEError?) {
-        error?.handleError()
+        error?.showErrorMessage()
         enableUI()
     }
     

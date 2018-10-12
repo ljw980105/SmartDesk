@@ -19,6 +19,7 @@
 		04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66944216E992A00B8795A /* ConnectionViewController.swift */; };
 		04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */; };
 		04B6694A216EA2E300B8795A /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66949216EA2E300B8795A /* BLEError.swift */; };
+		04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6694B2170100D00B8795A /* TimeoutableOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		04B66944216E992A00B8795A /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 		04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
 		04B66949216EA2E300B8795A /* BLEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
+		04B6694B2170100D00B8795A /* TimeoutableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutableOperation.swift; sourceTree = "<group>"; };
 		B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */,
+				04B6694B2170100D00B8795A /* TimeoutableOperation.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */,
+				04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */,
 				04B66922216DBB4A00B8795A /* ViewController.swift in Sources */,
 				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,

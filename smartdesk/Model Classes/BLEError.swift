@@ -15,7 +15,7 @@ enum BLEError {
     case timeOut
     case peripheralDisconnected
     
-    func handleError() {
+    func showErrorMessage() {
         switch self {
         case .genericError(let error):
             SwiftMessagesWrapper.showErrorMessage(title: "Error", body: error?.localizedDescription ?? "")
