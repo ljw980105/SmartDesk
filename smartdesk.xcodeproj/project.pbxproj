@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */; };
+		043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */; };
+		043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */; };
+		043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */; };
+		043E1C85217141F700B1ED56 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C84217141F700B1ED56 /* DashboardController.swift */; };
+		043E1C88217143DE00B1ED56 /* BLEControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C87217143DE00B1ED56 /* BLEControllable.swift */; };
+		043E1C8A217146A400B1ED56 /* BLEControlEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C89217146A400B1ED56 /* BLEControlEntity.swift */; };
+		043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8B217156BD00B1ED56 /* DeskLight.swift */; };
+		043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */; };
 		04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6691F216DBB4A00B8795A /* AppDelegate.swift */; };
-		04B66922216DBB4A00B8795A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66921216DBB4A00B8795A /* ViewController.swift */; };
+		04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66921216DBB4A00B8795A /* DashboardViewController.swift */; };
 		04B66925216DBB4A00B8795A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66923216DBB4A00B8795A /* Main.storyboard */; };
 		04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B66926216DBB4F00B8795A /* Assets.xcassets */; };
 		04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */; };
@@ -34,9 +42,17 @@
 
 /* Begin PBXFileReference section */
 		03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.debug.xcconfig"; sourceTree = "<group>"; };
+		043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSlidableTableViewCell.swift; sourceTree = "<group>"; };
+		043E1C84217141F700B1ED56 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		043E1C87217143DE00B1ED56 /* BLEControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControllable.swift; sourceTree = "<group>"; };
+		043E1C89217146A400B1ED56 /* BLEControlEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControlEntity.swift; sourceTree = "<group>"; };
+		043E1C8B217156BD00B1ED56 /* DeskLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskLight.swift; sourceTree = "<group>"; };
+		043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControlCollectionViewCell.swift; sourceTree = "<group>"; };
 		04B6691C216DBB4A00B8795A /* smartdesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartdesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B6691F216DBB4A00B8795A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04B66921216DBB4A00B8795A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04B66921216DBB4A00B8795A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		04B66924216DBB4A00B8795A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04B66926216DBB4F00B8795A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B66929216DBB4F00B8795A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,6 +89,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043E1C7B2171370600B1ED56 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				043E1C84217141F700B1ED56 /* DashboardController.swift */,
+				04B66921216DBB4A00B8795A /* DashboardViewController.swift */,
+				043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */,
+				043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */,
+				043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */,
+				043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		043E1C86217143B700B1ED56 /* BLEControl */ = {
+			isa = PBXGroup;
+			children = (
+				043E1C89217146A400B1ED56 /* BLEControlEntity.swift */,
+				043E1C87217143DE00B1ED56 /* BLEControllable.swift */,
+				043E1C8B217156BD00B1ED56 /* DeskLight.swift */,
+			);
+			path = BLEControl;
+			sourceTree = "<group>";
+		};
 		04B66913216DBB4A00B8795A = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +135,12 @@
 		04B6691E216DBB4A00B8795A /* smartdesk */ = {
 			isa = PBXGroup;
 			children = (
+				043E1C86217143B700B1ED56 /* BLEControl */,
+				043E1C7B2171370600B1ED56 /* Dashboard */,
 				04B66946216EA26A00B8795A /* Shared */,
 				04B6693F216DBD0F00B8795A /* Model Classes */,
 				04B6691F216DBB4A00B8795A /* AppDelegate.swift */,
 				04B66944216E992A00B8795A /* ConnectionViewController.swift */,
-				04B66921216DBB4A00B8795A /* ViewController.swift */,
 				04B66923216DBB4A00B8795A /* Main.storyboard */,
 				04B66926216DBB4F00B8795A /* Assets.xcassets */,
 				04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */,
@@ -239,6 +279,7 @@
 			files = (
 				04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */,
 				04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */,
+				043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */,
 				04B66925216DBB4A00B8795A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,12 +339,19 @@
 			files = (
 				04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */,
 				04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */,
-				04B66922216DBB4A00B8795A /* ViewController.swift in Sources */,
+				043E1C88217143DE00B1ED56 /* BLEControllable.swift in Sources */,
+				04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */,
 				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
+				043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */,
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
+				043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */,
 				04B6694A216EA2E300B8795A /* BLEError.swift in Sources */,
+				043E1C85217141F700B1ED56 /* DashboardController.swift in Sources */,
 				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
+				043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */,
+				043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */,
 				04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */,
+				043E1C8A217146A400B1ED56 /* BLEControlEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

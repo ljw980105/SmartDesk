@@ -28,7 +28,7 @@ class BLEManager: NSObject {
     private let timeOutInterval: TimeInterval = 5.0
     
     // if the connection request last more than 5s, then let the delegate know of the timeout error.
-    private var timeOutTimer: Timer!
+    private var timeOutTimer: Timer?
     
     override init() {
         super.init()
@@ -87,8 +87,9 @@ extension BLEManager: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager,
                         didDiscover peripheral: CBPeripheral,
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        guard peripheral.name == "SH-HC-08" else { return }
         print(peripheral.debugDescription)
+        // if you rename the ble module, there will be a newline. Be sure to remove it
+        guard peripheral.name?.trimmingCharacters(in: .newlines) == "Hexapi" else { return }
         smartDesk = peripheral
         bluetoothManager.stopScan()
         bluetoothManager.connect(smartDesk!)
@@ -150,9 +151,19 @@ extension BLEManager: CBPeripheralDelegate {
         guard let characteristics = service.characteristics, characteristics.count == 1 else { return }
         smartDeskDataPoint = characteristics.first!
         // at this point, cancel the timeout error message
-        timeOutTimer.invalidate()
+        timeOutTimer?.invalidate()
+        // listen for values sent from the BLE module
+        smartDesk?.setNotifyValue(true, for: smartDeskDataPoint!)
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()
+        }
+    }
+
+    func peripheral(_ peripheral: CBPeripheral,
+                    didUpdateValueFor characteristic: CBCharacteristic,
+                    error: Error?) {
+        if let data = characteristic.value, let str = String(data: data, encoding: String.Encoding.utf8) {
+            print("Received data is \(str)")
         }
     }
 }
