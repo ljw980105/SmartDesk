@@ -9,14 +9,14 @@
 import Foundation
 
 /**
- * A struct representing a general cell in the UI. Can be a switch or slider or neither.
+ * A struct representing a general cell in the UI. Can be a switch or slider or neither(generic).
  */
 struct BLEControlEntity {
     
     enum BLEControlType {
         case slider
         case toggle
-        case neither
+        case generic
     }
     
     /** the command used to interact with the ble module.*/
@@ -33,7 +33,7 @@ struct BLEControlEntity {
         } else if isSlider {
             controlType = .slider
         } else {
-            controlType = .neither
+            controlType = .generic
         }
         if isSwitch && isSwitch == isSlider {
             fatalError("This cannot be both a switch and a slider")

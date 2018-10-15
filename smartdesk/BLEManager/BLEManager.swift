@@ -25,9 +25,8 @@ class BLEManager: NSObject {
     private let bleModuleUUID = CBUUID(string: "0xFFE0") // gorgeous!
     private let bleCharacteristicUUID = CBUUID(string: "0xFFE1")
     
-    private let timeOutInterval: TimeInterval = 5.0
-    
     // if the connection request last more than 5s, then let the delegate know of the timeout error.
+    private let timeOutInterval: TimeInterval = 5.0
     private var timeOutTimer: Timer?
     
     override init() {
@@ -133,7 +132,8 @@ extension BLEManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
         guard services.count == 1 else {
-            print("Should only have 1 service")
+            delegate?.didReceiveError(error: .genericError(error:
+                NSError(domain: "Should only have 1 service", code: 0, userInfo: [:])))
             return
         }
         peripheral.discoverCharacteristics([bleCharacteristicUUID], for: services.first!)
@@ -148,12 +148,17 @@ extension BLEManager: CBPeripheralDelegate {
             }
             return
         }
-        guard let characteristics = service.characteristics, characteristics.count == 1 else { return }
+        guard let characteristics = service.characteristics, characteristics.count == 1 else {
+            delegate?.didReceiveError(error: .unexpected)
+            return
+        }
         smartDeskDataPoint = characteristics.first!
         // at this point, cancel the timeout error message
         timeOutTimer?.invalidate()
         // listen for values sent from the BLE module
         smartDesk?.setNotifyValue(true, for: smartDeskDataPoint!)
+        // write a value to wake up the module, since it always start working at the 2nd write
+        // send(string: "_")
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()
         }

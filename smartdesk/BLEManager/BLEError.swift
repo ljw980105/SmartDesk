@@ -14,6 +14,7 @@ enum BLEError {
     case bluetoothOff
     case timeOut
     case peripheralDisconnected
+    case unexpected
     
     func showErrorMessage() {
         switch self {
@@ -25,6 +26,8 @@ enum BLEError {
             SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Connection timed out")
         case .peripheralDisconnected:
             SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Bluetooth Device Disconnected")
+        case .unexpected:
+            SwiftMessagesWrapper.showErrorMessage(title: "Error", body: "Unexpected Error Encountered")
         }
     }
     

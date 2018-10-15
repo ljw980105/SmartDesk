@@ -138,7 +138,7 @@
 				043E1C86217143B700B1ED56 /* BLEControl */,
 				043E1C7B2171370600B1ED56 /* Dashboard */,
 				04B66946216EA26A00B8795A /* Shared */,
-				04B6693F216DBD0F00B8795A /* Model Classes */,
+				04B6693F216DBD0F00B8795A /* BLEManager */,
 				04B6691F216DBB4A00B8795A /* AppDelegate.swift */,
 				04B66944216E992A00B8795A /* ConnectionViewController.swift */,
 				04B66923216DBB4A00B8795A /* Main.storyboard */,
@@ -158,14 +158,14 @@
 			path = smartdeskTests;
 			sourceTree = "<group>";
 		};
-		04B6693F216DBD0F00B8795A /* Model Classes */ = {
+		04B6693F216DBD0F00B8795A /* BLEManager */ = {
 			isa = PBXGroup;
 			children = (
 				04B66940216DBD3300B8795A /* BLEManager.swift */,
 				04B66942216DC64600B8795A /* BLEManagerDelegate.swift */,
 				04B66949216EA2E300B8795A /* BLEError.swift */,
 			);
-			path = "Model Classes";
+			path = BLEManager;
 			sourceTree = "<group>";
 		};
 		04B66946216EA26A00B8795A /* Shared */ = {

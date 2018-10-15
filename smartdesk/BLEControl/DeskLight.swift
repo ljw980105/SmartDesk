@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DeskLight: NSObject, BLEControllable{
+class DeskLight: NSObject, BLEControllable {
     var containsSlider: Bool = false
     var sectionHeader: String = "Desk Light"
     var controls: [BLEControlEntity] = [BLEControlEntity(command: "A", name: "On", isSwitch: true)]

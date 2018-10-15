@@ -23,7 +23,7 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         tableView.register(UINib(nibName: "DashboardHeaderTableViewCell", bundle: Bundle.main),
                            forCellReuseIdentifier: DashboardHeaderTableViewCell.identifier)
         
-        if #available(iOS 11.0, *){
+        if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
     }
@@ -50,7 +50,6 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     // MARK: - IBActions
     @IBAction func disconnectBLE(_ sender: UIBarButtonItem) {
         BLEManager.current.disconnect()
-        BLEManager.current.delegate = nil
         dismiss(animated: true, completion: nil)
         BLEManager.current.delegate = nil
     }
