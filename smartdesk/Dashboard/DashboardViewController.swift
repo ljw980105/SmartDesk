@@ -13,6 +13,7 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
     
     private let controller = DashboardController()
+    private var signalStrengthTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +23,18 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         
         tableView.register(UINib(nibName: "DashboardHeaderTableViewCell", bundle: Bundle.main),
                            forCellReuseIdentifier: DashboardHeaderTableViewCell.identifier)
+        tableView.register(UINib(nibName: "SignalStrengthTableViewCell", bundle: Bundle.main),
+                           forCellReuseIdentifier: SignalStrengthTableViewCell.identifier)
+        
         
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
+        
+        signalStrengthTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { timer in
+            BLEManager.current.readSignalStrength()
+        }
+        signalStrengthTimer?.tolerance = 1.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +53,14 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     func didReceiveError(error: BLEError?) {
         error?.showErrorMessage()
         dismiss(animated: true, completion: nil)
+        signalStrengthTimer?.invalidate()
         BLEManager.current.delegate = nil
+    }
+    
+    func didReceiveRSSIReading(reading: Int, status: String) {
+        let indexPath = IndexPath(row: 0, section: controller.bleControls.count)
+        let cell = tableView.cellForRow(at: indexPath) as? SignalStrengthTableViewCell
+        cell?.strengthLabel.text = "Signal Strength: \(status) (\(reading)dBm)"
     }
     
     // MARK: - IBActions
@@ -52,12 +68,13 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         BLEManager.current.disconnect()
         dismiss(animated: true, completion: nil)
         BLEManager.current.delegate = nil
+        signalStrengthTimer?.invalidate()
     }
 }
 
 extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return controller.bleControls.count
+        return controller.bleControls.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +82,14 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // dequeue the last strength indicator cell
+        if indexPath.section == controller.bleControls.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SignalStrengthTableViewCell.identifier,
+            for: indexPath) as? SignalStrengthTableViewCell
+            return cell ?? UITableViewCell()
+        }
+        
+        // dequeue the generic cell
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier)
         if let cell = cell as? DashboardSlidableTableViewCell {
             cell.controllableObject = controller.bleControls[indexPath.row]
@@ -75,17 +100,18 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: DashboardHeaderTableViewCell.identifier)
         if let header = header as? DashboardHeaderTableViewCell {
+            if section >= controller.bleControls.count { return nil }
             header.header.text = controller.bleControls[section].sectionHeader
         }
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+        return section == controller.bleControls.count ? 0 : 50.0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return indexPath.section == controller.bleControls.count ? 40.0 : 80.0
     }
     
 }

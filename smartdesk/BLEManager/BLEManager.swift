@@ -73,6 +73,10 @@ class BLEManager: NSObject {
         peripheral.writeValue(string.data(using: String.Encoding.utf8)!,
                               for: characteristic, type: .withoutResponse)
     }
+    
+    func readSignalStrength() {
+        smartDesk?.readRSSI()
+    }
 }
 
 extension BLEManager: CBCentralManagerDelegate {
@@ -167,8 +171,50 @@ extension BLEManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral,
                     didUpdateValueFor characteristic: CBCharacteristic,
                     error: Error?) {
-        if let data = characteristic.value, let str = String(data: data, encoding: String.Encoding.utf8) {
-            print("Received data is \(str)")
+        if let data = characteristic.value {
+            let byteArray = [UInt8](data)
+            // Arduino Serial string encoding is ascii
+            // this can only receive 4 bytes at a time (4 characters)
+            var finalString = ""
+            if let asciiStr = String(bytes: byteArray, encoding: String.Encoding.ascii) {
+                var asciiArr = asciiStr.components(separatedBy: "\r\n")
+                // remove the 10 and empty string
+                for _ in 0..<2 { asciiArr.removeLast() }
+                print(asciiArr)
+                asciiArr.forEach { each in
+                    if let asciiNum = Int(each), let unicodeScalar = UnicodeScalar(asciiNum) {
+                        finalString += "\(Character(unicodeScalar))"
+                    }
+                }
+            }
+            print(finalString.trimmingCharacters(in: .whitespacesAndNewlines))
         }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        guard error == nil else {
+            delegate?.didReceiveError(error: .genericError(error: error))
+            return
+        }
+        let dbm = RSSI.intValue
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+             strongSelf.delegate?.didReceiveRSSIReading(reading: dbm,
+                                                        status: strongSelf.signalStrengthString(from: dbm))
+        }
+    }
+    
+    /** Metrics obtained from https://www.metageek.com/training/resources/understanding-rssi.html*/
+    private func signalStrengthString(from dbm: Int) -> String {
+        if dbm < -90 {
+            return "Unusable"
+        } else if dbm < -80 {
+            return "Not good"
+        } else if dbm < -70 {
+            return "OK"
+        } else if dbm < -67 {
+            return "Good"
+        }
+        return "Amazing"
     }
 }

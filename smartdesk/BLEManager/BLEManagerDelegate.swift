@@ -15,6 +15,7 @@ protocol BLEManagerDelegate: class {
     func didFailSmartDeskConnection()
     func readyToSendData()
     func didReceiveError(error: BLEError?)
+    func didReceiveRSSIReading(reading: Int, status: String)
 }
 
 /** Provides optional methods with protocol extensions */
@@ -25,4 +26,5 @@ extension BLEManagerDelegate {
     func didFailSmartDeskConnection() {}
     func readyToSendData() {}
     func didReceiveError(error: BLEError?) {}
+    func didReceiveRSSIReading(reading: Int, status: String) {}
 }
