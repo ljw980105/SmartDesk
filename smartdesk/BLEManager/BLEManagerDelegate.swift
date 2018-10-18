@@ -9,22 +9,20 @@
 import Foundation
 
 protocol BLEManagerDelegate: class {
-    func didPrepareToConnect()
-    func didConnectToSmartDesk()
     func didDisconnectFromSmartDesk()
-    func didFailSmartDeskConnection()
     func readyToSendData()
     func didReceiveError(error: BLEError?)
     func didReceiveRSSIReading(reading: Int, status: String)
+    func didReceiveMessage(message: String)
+    func didReceiveCommand(command: IncomingCommand)
 }
 
 /** Provides optional methods with protocol extensions */
 extension BLEManagerDelegate {
-    func didPrepareToConnect() {}
-    func didConnectToSmartDesk() {}
     func didDisconnectFromSmartDesk() {}
-    func didFailSmartDeskConnection() {}
     func readyToSendData() {}
     func didReceiveError(error: BLEError?) {}
     func didReceiveRSSIReading(reading: Int, status: String) {}
+    func didReceiveMessage(message: String) {}
+    func didReceiveCommand(command: IncomingCommand) {}
 }

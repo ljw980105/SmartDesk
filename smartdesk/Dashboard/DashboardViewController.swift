@@ -63,6 +63,17 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         cell?.strengthLabel.text = "Signal Strength: \(status) (\(reading)dBm)"
     }
     
+    func didReceiveMessage(message: String) {
+        SwiftMessagesWrapper.showGenericMessage(title: "Message", body: message)
+    }
+    
+    func didReceiveCommand(command: IncomingCommand) {
+        guard let cmdToIndex = CommandToIndex.currentTable[command] else { return }
+        if let cells = tableView.cellForRow(at: IndexPath(row: 0, section: cmdToIndex.indexInTableView)) as? DashboardSlidableTableViewCell {
+            cells.performOperations(onCellWith: cmdToIndex.collecIndexPath, command: command)
+        }
+    }
+    
     // MARK: - IBActions
     @IBAction func disconnectBLE(_ sender: UIBarButtonItem) {
         BLEManager.current.disconnect()
@@ -93,6 +104,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier)
         if let cell = cell as? DashboardSlidableTableViewCell {
             cell.controllableObject = controller.bleControls[indexPath.row]
+            cell.sectionIndex = indexPath.section
         }
         return cell ?? UITableViewCell()
     }

@@ -34,7 +34,7 @@ class BLEManager: NSObject {
         bluetoothManager = CBCentralManager(delegate: self, queue: DispatchQueue.global(qos: .userInitiated))
     }
     
-    // MARK: Instance methods
+    // MARK: - Instance methods
     func connect() {
         if bluetoothManager.state == .poweredOn {
             bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
@@ -120,7 +120,6 @@ extension BLEManager: CBCentralManagerDelegate {
                 self?.delegate?.didReceiveError(error: .bluetoothOff)
             case .poweredOn:
                 print("BLE Manager Powered on State")
-                self?.delegate?.didPrepareToConnect()
             default:
                 if let error = BLEError.error(fromBLEState: state) {
                     self?.delegate?.didReceiveError(error: error)
@@ -161,8 +160,6 @@ extension BLEManager: CBPeripheralDelegate {
         timeOutTimer?.invalidate()
         // listen for values sent from the BLE module
         smartDesk?.setNotifyValue(true, for: smartDeskDataPoint!)
-        // write a value to wake up the module, since it always start working at the 2nd write
-        // send(string: "_")
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()
         }
@@ -175,19 +172,17 @@ extension BLEManager: CBPeripheralDelegate {
             let byteArray = [UInt8](data)
             // Arduino Serial string encoding is ascii
             // this can only receive 4 bytes at a time (4 characters)
-            var finalString = ""
             if let asciiStr = String(bytes: byteArray, encoding: String.Encoding.ascii) {
-                var asciiArr = asciiStr.components(separatedBy: "\r\n")
-                // remove the 10 and empty string
-                for _ in 0..<2 { asciiArr.removeLast() }
-                print(asciiArr)
-                asciiArr.forEach { each in
-                    if let asciiNum = Int(each), let unicodeScalar = UnicodeScalar(asciiNum) {
-                        finalString += "\(Character(unicodeScalar))"
+                DispatchQueue.main.async { [weak self] in
+                    print(asciiStr)
+                    let str = asciiStr.contains("\r\n") ? BLEManager.string(ascii: asciiStr) : asciiStr
+                    if let cmd = IncomingCommand(rawValue: str) {
+                        self?.delegate?.didReceiveCommand(command: cmd)
+                    } else {
+                        self?.delegate?.didReceiveMessage(message: str)
                     }
                 }
             }
-            print(finalString.trimmingCharacters(in: .whitespacesAndNewlines))
         }
     }
     
@@ -216,5 +211,28 @@ extension BLEManager: CBPeripheralDelegate {
             return "Good"
         }
         return "Amazing"
+    }
+}
+
+extension BLEManager {
+    // MARK: - Utilities
+    
+    /**
+     * Convert to a string with letters (e.g. `"AB"`) from an ascii string such as
+     * `"65\r\n66\r\n10"`.
+     *   - Use this method when processing strings from the serial monitor
+     */
+    class func string(ascii asciiStr: String) -> String {
+        var asciiArr = asciiStr.components(separatedBy: "\r\n")
+        print(asciiArr)
+        // remove the 10 and empty string
+        asciiArr = asciiArr.filter { $0 != "10" && $0 != "" }
+        let strArr = asciiArr.map { element -> String in
+            guard let asciiNum = Int(element), let unicodeScalar = UnicodeScalar(asciiNum) else {
+                return ""
+            }
+            return "\(Character(unicodeScalar))"
+        }
+        return strArr.joined().trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

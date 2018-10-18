@@ -20,13 +20,16 @@ struct BLEControlEntity {
     }
     
     /** the command used to interact with the ble module.*/
-    let command: String
+    let outgoingCommand: String
     /** The name displayed on the cell.*/
     let name: String
     let controlType: BLEControlType
+    let incomingCommands: [IncomingCommand]
     
-    init(command: String, name: String, isSwitch: Bool = false, isSlider: Bool = false) {
-        self.command = command
+    init(command: String, name: String, incomingCommands: [IncomingCommand],
+         isSwitch: Bool = false, isSlider: Bool = false) {
+        self.outgoingCommand = command
+        self.incomingCommands = incomingCommands
         self.name = name
         if isSwitch {
             controlType = .toggle

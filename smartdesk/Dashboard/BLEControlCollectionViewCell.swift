@@ -30,28 +30,20 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         backdrop.layer.cornerRadius = 15.0
         backdrop.clipsToBounds = true
-        
-//        let shadowPath = UIBezierPath(rect: backdrop.bounds)
-//        backdrop.layer.masksToBounds = false
-//        backdrop.layer.shadowColor = UIColor.black.cgColor
-//        backdrop.layer.shadowOffset = CGSize(width: 20, height: 2)
-//        backdrop.layer.shadowOpacity = 0.2
-//        backdrop.layer.shadowPath = shadowPath.cgPath
     }
     
-    func toggle() {
-        if statusLabel.text == "On" {
-            statusLabel.text = "Off" // 23 162 18
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
-                self?.backdrop.backgroundColor = self?.offColor
-                }, completion: nil)
-        } else {
+    func adjustUI(with command: IncomingCommand) {
+        switch command {
+        case .deskLightOn:
             statusLabel.text = "On"
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
                 self?.backdrop.backgroundColor = self?.onColor
-            }, completion: nil)
+                }, completion: nil)
+        case .deskLightOff:
+            statusLabel.text = "Off"
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
+                self?.backdrop.backgroundColor = self?.offColor
+                }, completion: nil)
         }
     }
-    
-    
 }

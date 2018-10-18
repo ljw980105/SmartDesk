@@ -13,6 +13,8 @@ class DashboardSlidableTableViewCell: UITableViewCell {
     static let identifier = "DashboardSlidable"
     let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
     
+    var sectionIndex: Int = 0
+    
     var controllableObject: BLEControllable? {
         didSet {
             collectionView.reloadData()
@@ -35,6 +37,12 @@ class DashboardSlidableTableViewCell: UITableViewCell {
         collectionView.collectionViewLayout = layout
     }
     
+    func performOperations(onCellWith indexPath: IndexPath, command: IncomingCommand) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? BLEControlCollectionViewCell {
+            cell.adjustUI(with: command)
+        }
+    }
+    
 }
 
 extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -46,18 +54,21 @@ extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollection
         let identifier = BLEControlCollectionViewCell.identifier
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         if let cell = cell as? BLEControlCollectionViewCell, let obj = controllableObject {
-            cell.controllableObject = obj.controls[indexPath.row]
+            let controlEntity = obj.controls[indexPath.row]
+            cell.controllableObject = controlEntity
+            for cmd in controlEntity.incomingCommands {
+                CommandToIndex.currentTable[cmd] = CommandToIndex(cmd: cmd,
+                                                                  tableViewIndex: sectionIndex,
+                                                                  collecIndexPath: indexPath)
+            }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         hapticFeedback.impactOccurred()
-        if let cmd = controllableObject?.controls[indexPath.row].command {
+        if let cmd = controllableObject?.controls[indexPath.row].outgoingCommand {
             BLEManager.current.send(string: cmd)
-            if let cell = collectionView.cellForItem(at: indexPath) as? BLEControlCollectionViewCell {
-                cell.toggle()
-            }
         }
     }
     

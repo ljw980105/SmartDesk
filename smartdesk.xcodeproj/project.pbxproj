@@ -18,18 +18,27 @@
 		043E1C8A217146A400B1ED56 /* BLEControlEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C89217146A400B1ED56 /* BLEControlEntity.swift */; };
 		043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8B217156BD00B1ED56 /* DeskLight.swift */; };
 		043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */; };
+		048E3EB921770E6600217DD8 /* TestAsciiStringConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */; };
+		048E3EBA21770E9A00217DD8 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
+		048E3EBB21770F2100217DD8 /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66942216DC64600B8795A /* BLEManagerDelegate.swift */; };
+		048E3EBC21770F2400217DD8 /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66949216EA2E300B8795A /* BLEError.swift */; };
+		048E3EBD21770F6100217DD8 /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */; };
+		048E3EC221782F2800217DD8 /* OutgoingCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC121782F2800217DD8 /* OutgoingCommands.swift */; };
+		048E3EC4217840D500217DD8 /* IncomingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC3217840D500217DD8 /* IncomingCommand.swift */; };
+		048E3EC62178532300217DD8 /* CommandToIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC52178532300217DD8 /* CommandToIndex.swift */; };
+		048E3EC72178BF8E00217DD8 /* IncomingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC3217840D500217DD8 /* IncomingCommand.swift */; };
 		04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6691F216DBB4A00B8795A /* AppDelegate.swift */; };
 		04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66921216DBB4A00B8795A /* DashboardViewController.swift */; };
 		04B66925216DBB4A00B8795A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66923216DBB4A00B8795A /* Main.storyboard */; };
 		04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B66926216DBB4F00B8795A /* Assets.xcassets */; };
 		04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66928216DBB4F00B8795A /* LaunchScreen.storyboard */; };
-		04B66935216DBB4F00B8795A /* smartdeskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66934216DBB4F00B8795A /* smartdeskTests.swift */; };
 		04B66941216DBD3300B8795A /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
 		04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66942216DC64600B8795A /* BLEManagerDelegate.swift */; };
 		04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66944216E992A00B8795A /* ConnectionViewController.swift */; };
 		04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */; };
 		04B6694A216EA2E300B8795A /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66949216EA2E300B8795A /* BLEError.swift */; };
 		04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6694B2170100D00B8795A /* TimeoutableOperation.swift */; };
+		382C4C5740DB2458EA19902D /* Pods_smartdeskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +63,10 @@
 		043E1C89217146A400B1ED56 /* BLEControlEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControlEntity.swift; sourceTree = "<group>"; };
 		043E1C8B217156BD00B1ED56 /* DeskLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskLight.swift; sourceTree = "<group>"; };
 		043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControlCollectionViewCell.swift; sourceTree = "<group>"; };
+		048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAsciiStringConversion.swift; sourceTree = "<group>"; };
+		048E3EC121782F2800217DD8 /* OutgoingCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingCommands.swift; sourceTree = "<group>"; };
+		048E3EC3217840D500217DD8 /* IncomingCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCommand.swift; sourceTree = "<group>"; };
+		048E3EC52178532300217DD8 /* CommandToIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandToIndex.swift; sourceTree = "<group>"; };
 		04B6691C216DBB4A00B8795A /* smartdesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartdesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B6691F216DBB4A00B8795A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B66921216DBB4A00B8795A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +75,6 @@
 		04B66929216DBB4F00B8795A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B6692B216DBB4F00B8795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B66930216DBB4F00B8795A /* smartdeskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smartdeskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04B66934216DBB4F00B8795A /* smartdeskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smartdeskTests.swift; sourceTree = "<group>"; };
 		04B66936216DBB4F00B8795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B66940216DBD3300B8795A /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		04B66942216DC64600B8795A /* BLEManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManagerDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +82,9 @@
 		04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
 		04B66949216EA2E300B8795A /* BLEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B6694B2170100D00B8795A /* TimeoutableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutableOperation.swift; sourceTree = "<group>"; };
+		1F7ECF436E5DB71B8BD43EFA /* Pods-smartdeskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdeskTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests.release.xcconfig"; sourceTree = "<group>"; };
+		3C0BB77FED39123153A32B12 /* Pods-smartdeskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdeskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests.debug.xcconfig"; sourceTree = "<group>"; };
+		603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdeskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				382C4C5740DB2458EA19902D /* Pods_smartdeskTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +130,9 @@
 				043E1C89217146A400B1ED56 /* BLEControlEntity.swift */,
 				043E1C87217143DE00B1ED56 /* BLEControllable.swift */,
 				043E1C8B217156BD00B1ED56 /* DeskLight.swift */,
+				048E3EC121782F2800217DD8 /* OutgoingCommands.swift */,
+				048E3EC3217840D500217DD8 /* IncomingCommand.swift */,
+				048E3EC52178532300217DD8 /* CommandToIndex.swift */,
 			);
 			path = BLEControl;
 			sourceTree = "<group>";
@@ -158,8 +177,8 @@
 		04B66933216DBB4F00B8795A /* smartdeskTests */ = {
 			isa = PBXGroup;
 			children = (
-				04B66934216DBB4F00B8795A /* smartdeskTests.swift */,
 				04B66936216DBB4F00B8795A /* Info.plist */,
+				048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */,
 			);
 			path = smartdeskTests;
 			sourceTree = "<group>";
@@ -187,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */,
+				603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,6 +216,8 @@
 			children = (
 				03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */,
 				CE654818A44E37282ED67AEA /* Pods-smartdesk.release.xcconfig */,
+				3C0BB77FED39123153A32B12 /* Pods-smartdeskTests.debug.xcconfig */,
+				1F7ECF436E5DB71B8BD43EFA /* Pods-smartdeskTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -226,9 +248,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B6693C216DBB4F00B8795A /* Build configuration list for PBXNativeTarget "smartdeskTests" */;
 			buildPhases = (
+				61C62BC28F27BEDB9120EB4A /* [CP] Check Pods Manifest.lock */,
 				04B6692C216DBB4F00B8795A /* Sources */,
 				04B6692D216DBB4F00B8795A /* Frameworks */,
 				04B6692E216DBB4F00B8795A /* Resources */,
+				6CD55A5A3D541C4BA576FA3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +279,7 @@
 					};
 					04B6692F216DBB4F00B8795A = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 						TestTargetID = 04B6691B216DBB4A00B8795A;
 					};
 				};
@@ -337,6 +362,42 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		61C62BC28F27BEDB9120EB4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-smartdeskTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CD55A5A3D541C4BA576FA3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -347,6 +408,8 @@
 				04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */,
 				04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */,
 				043E1C88217143DE00B1ED56 /* BLEControllable.swift in Sources */,
+				048E3EC4217840D500217DD8 /* IncomingCommand.swift in Sources */,
+				048E3EC62178532300217DD8 /* CommandToIndex.swift in Sources */,
 				04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */,
 				0414C36E21746A0D008B64A7 /* SignalStrengthTableViewCell.swift in Sources */,
 				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
@@ -354,6 +417,7 @@
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
 				043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */,
 				04B6694A216EA2E300B8795A /* BLEError.swift in Sources */,
+				048E3EC221782F2800217DD8 /* OutgoingCommands.swift in Sources */,
 				043E1C85217141F700B1ED56 /* DashboardController.swift in Sources */,
 				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
 				043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */,
@@ -367,7 +431,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B66935216DBB4F00B8795A /* smartdeskTests.swift in Sources */,
+				048E3EBD21770F6100217DD8 /* SwiftMessagesWrapper.swift in Sources */,
+				048E3EC72178BF8E00217DD8 /* IncomingCommand.swift in Sources */,
+				048E3EB921770E6600217DD8 /* TestAsciiStringConversion.swift in Sources */,
+				048E3EBA21770E9A00217DD8 /* BLEManager.swift in Sources */,
+				048E3EBC21770F2400217DD8 /* BLEError.swift in Sources */,
+				048E3EBB21770F2100217DD8 /* BLEManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,9 +626,11 @@
 		};
 		04B6693D216DBB4F00B8795A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C0BB77FED39123153A32B12 /* Pods-smartdeskTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NDBTK98VL3;
 				INFOPLIST_FILE = smartdeskTests/Info.plist;
@@ -570,6 +641,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingweili.smartdeskTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/smartdesk.app/smartdesk";
@@ -578,9 +650,11 @@
 		};
 		04B6693E216DBB4F00B8795A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F7ECF436E5DB71B8BD43EFA /* Pods-smartdeskTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NDBTK98VL3;
 				INFOPLIST_FILE = smartdeskTests/Info.plist;
