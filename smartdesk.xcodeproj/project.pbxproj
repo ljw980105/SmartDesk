@@ -27,6 +27,7 @@
 		048E3EC4217840D500217DD8 /* IncomingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC3217840D500217DD8 /* IncomingCommand.swift */; };
 		048E3EC62178532300217DD8 /* CommandToIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC52178532300217DD8 /* CommandToIndex.swift */; };
 		048E3EC72178BF8E00217DD8 /* IncomingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC3217840D500217DD8 /* IncomingCommand.swift */; };
+		048E3EC92179471A00217DD8 /* SignalStrengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC82179471A00217DD8 /* SignalStrengthViewController.swift */; };
 		04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6691F216DBB4A00B8795A /* AppDelegate.swift */; };
 		04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66921216DBB4A00B8795A /* DashboardViewController.swift */; };
 		04B66925216DBB4A00B8795A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B66923216DBB4A00B8795A /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		048E3EC121782F2800217DD8 /* OutgoingCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingCommands.swift; sourceTree = "<group>"; };
 		048E3EC3217840D500217DD8 /* IncomingCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCommand.swift; sourceTree = "<group>"; };
 		048E3EC52178532300217DD8 /* CommandToIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandToIndex.swift; sourceTree = "<group>"; };
+		048E3EC82179471A00217DD8 /* SignalStrengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalStrengthViewController.swift; sourceTree = "<group>"; };
 		04B6691C216DBB4A00B8795A /* smartdesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartdesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B6691F216DBB4A00B8795A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B66921216DBB4A00B8795A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				043E1C84217141F700B1ED56 /* DashboardController.swift */,
 				04B66921216DBB4A00B8795A /* DashboardViewController.swift */,
+				048E3EC82179471A00217DD8 /* SignalStrengthViewController.swift */,
 				043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */,
 				043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */,
 				043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */,
@@ -406,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B66943216DC64600B8795A /* BLEManagerDelegate.swift in Sources */,
+				048E3EC92179471A00217DD8 /* SignalStrengthViewController.swift in Sources */,
 				04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */,
 				043E1C88217143DE00B1ED56 /* BLEControllable.swift in Sources */,
 				048E3EC4217840D500217DD8 /* IncomingCommand.swift in Sources */,

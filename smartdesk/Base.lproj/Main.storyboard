@@ -165,8 +165,17 @@
                                 <action selector="disconnectBLE:" destination="BYZ-38-t0r" id="f4p-uC-T7v"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="BLESignalAmazing" id="3DO-Wr-Tr1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="4bS-NF-M9S" kind="popoverPresentation" popoverAnchorBarButtonItem="3DO-Wr-Tr1" id="AI9-gt-OAc">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="signalStrengthItem" destination="3DO-Wr-Tr1" id="e9A-0d-1Gc"/>
                         <outlet property="tableView" destination="WGV-bX-FRI" id="A5f-WS-ttY"/>
                         <outlet property="tableViewWidth" destination="x4Q-Pu-Eq8" id="H03-tx-2cK"/>
                     </connections>
@@ -174,6 +183,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="42.728635682158924"/>
+        </scene>
+        <!--Signal Strength View Controller-->
+        <scene sceneID="une-oU-FHd">
+            <objects>
+                <viewController id="4bS-NF-M9S" customClass="SignalStrengthViewController" customModule="smartdesk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8kt-o7-x4e">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZrA-Lb-fA9">
+                                <rect key="frame" x="39" y="25.5" width="122.5" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signal Strength:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8N-YF-oXb">
+                                        <rect key="frame" x="0.0" y="0.0" width="122.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UK-oR-efa">
+                                        <rect key="frame" x="57" y="28.5" width="8" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZrA-Lb-fA9" firstAttribute="centerY" secondItem="dmE-7a-VOZ" secondAttribute="centerY" id="6aK-k0-5OH"/>
+                            <constraint firstItem="ZrA-Lb-fA9" firstAttribute="centerX" secondItem="dmE-7a-VOZ" secondAttribute="centerX" id="cXZ-81-6JG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dmE-7a-VOZ"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="100"/>
+                    <size key="freeformSize" width="200" height="100"/>
+                    <connections>
+                        <outlet property="statusString" destination="2UK-oR-efa" id="KZj-cN-KFr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBp-0w-y72" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="-118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pjb-eF-bc8">
@@ -196,6 +248,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BLESignalAmazing" width="32" height="32"/>
         <image name="HexapiLogo" width="1024" height="1024"/>
     </resources>
 </document>

@@ -11,20 +11,18 @@ import UIKit
 class DashboardViewController: UIViewController, BLEManagerDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var signalStrengthItem: UIBarButtonItem!
     
     private let controller = DashboardController()
     private var signalStrengthTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "DashboardHeaderTableViewCell", bundle: Bundle.main),
                            forCellReuseIdentifier: DashboardHeaderTableViewCell.identifier)
-        tableView.register(UINib(nibName: "SignalStrengthTableViewCell", bundle: Bundle.main),
-                           forCellReuseIdentifier: SignalStrengthTableViewCell.identifier)
         
         
         if #available(iOS 11.0, *) {
@@ -58,9 +56,7 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     }
     
     func didReceiveRSSIReading(reading: Int, status: String) {
-        let indexPath = IndexPath(row: 0, section: controller.bleControls.count)
-        let cell = tableView.cellForRow(at: indexPath) as? SignalStrengthTableViewCell
-        cell?.strengthLabel.text = "Signal Strength: \(status) (\(reading)dBm)"
+        signalStrengthItem.image = UIImage(named: "BLESignal\(status)")
     }
     
     func didReceiveMessage(message: String) {
@@ -81,11 +77,19 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         BLEManager.current.delegate = nil
         signalStrengthTimer?.invalidate()
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let ppc = segue.destination.popoverPresentationController {
+            ppc.delegate = self
+            BLEManager.current.delegate = nil
+        }
+    }
 }
 
 extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return controller.bleControls.count + 1
+        return controller.bleControls.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,14 +97,6 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // dequeue the last strength indicator cell
-        if indexPath.section == controller.bleControls.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: SignalStrengthTableViewCell.identifier,
-            for: indexPath) as? SignalStrengthTableViewCell
-            return cell ?? UITableViewCell()
-        }
-        
-        // dequeue the generic cell
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier)
         if let cell = cell as? DashboardSlidableTableViewCell {
             cell.controllableObject = controller.bleControls[indexPath.row]
@@ -112,19 +108,31 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: DashboardHeaderTableViewCell.identifier)
         if let header = header as? DashboardHeaderTableViewCell {
-            if section >= controller.bleControls.count { return nil }
             header.header.text = controller.bleControls[section].sectionHeader
         }
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == controller.bleControls.count ? 0 : 50.0
+        return 50.0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == controller.bleControls.count ? 40.0 : 80.0
+        return 80.0
     }
     
 }
 
+extension DashboardViewController: UIPopoverPresentationControllerDelegate {
+    // MARK: - UIPopoverPresentationControllerDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        // unlink the delegate from the popover
+        BLEManager.current.delegate = nil
+        // set the delegate to self
+        BLEManager.current.delegate = self
+    }
+}

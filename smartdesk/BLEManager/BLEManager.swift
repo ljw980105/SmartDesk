@@ -204,7 +204,7 @@ extension BLEManager: CBPeripheralDelegate {
         if dbm < -90 {
             return "Unusable"
         } else if dbm < -80 {
-            return "Not good"
+            return "Bad"
         } else if dbm < -70 {
             return "OK"
         } else if dbm < -67 {
