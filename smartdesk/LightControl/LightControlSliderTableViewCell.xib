@@ -12,30 +12,32 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="signalStrength" rowHeight="50" id="KGk-i7-Jjw" customClass="SignalStrengthTableViewCell" customModule="smartdesk" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lightControlSlider" id="KGk-i7-Jjw" customClass="LightControlSliderTableViewCell" customModule="smartdesk" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signal Strength: -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE6-dg-00G">
-                        <rect key="frame" x="103" y="13.5" width="114" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-4w-3dk">
+                        <rect key="frame" x="18" y="7" width="284" height="31"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <action selector="lightSliderChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="rZO-CZ-jZq"/>
+                        </connections>
+                    </slider>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="zE6-dg-00G" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DWf-6F-J1i"/>
-                    <constraint firstItem="zE6-dg-00G" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sti-yK-lvj"/>
+                    <constraint firstItem="kzq-4w-3dk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IVu-ca-yCc"/>
+                    <constraint firstItem="kzq-4w-3dk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SIx-F7-lJl"/>
+                    <constraint firstAttribute="trailing" secondItem="kzq-4w-3dk" secondAttribute="trailing" constant="20" id="v0X-Oo-Ehq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="strengthLabel" destination="zE6-dg-00G" id="QSX-yk-zSx"/>
+                <outlet property="lightSlider" destination="kzq-4w-3dk" id="ImN-oG-hnM"/>
             </connections>
-            <point key="canvasLocation" x="137.59999999999999" y="125.93703148425789"/>
+            <point key="canvasLocation" x="52.799999999999997" y="56.671664167916049"/>
         </tableViewCell>
     </objects>
 </document>

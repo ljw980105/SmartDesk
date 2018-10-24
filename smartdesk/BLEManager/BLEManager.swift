@@ -10,7 +10,7 @@ import Foundation
 import CoreBluetooth
 
 /**
- * Note: dispatch to the main thread when interacting with this class
+ * Note: dispatch to the main thread when calling delegate methods.
  */
 class BLEManager: NSObject {
     
@@ -74,6 +74,10 @@ class BLEManager: NSObject {
                               for: characteristic, type: .withoutResponse)
     }
     
+    /**
+     * Read the signal strength of the BLE connection. The ressult is passed
+     * in as a parameter in the delegate callback `didReceiveRSSIReading(reading:status:)`.
+     */
     func readSignalStrength() {
         smartDesk?.readRSSI()
     }
@@ -221,18 +225,17 @@ extension BLEManager {
      * Convert to a string with letters (e.g. `"AB"`) from an ascii string such as
      * `"65\r\n66\r\n10"`.
      *   - Use this method when processing strings from the serial monitor
+     * - parameter asciiStr: String in ascii number form, separeted by \r\n
      */
     class func string(ascii asciiStr: String) -> String {
-        var asciiArr = asciiStr.components(separatedBy: "\r\n")
+        let asciiArr = asciiStr.components(separatedBy: "\r\n")
         print(asciiArr)
         // remove the 10 and empty string
-        asciiArr = asciiArr.filter { $0 != "10" && $0 != "" }
-        let strArr = asciiArr.map { element -> String in
+        return asciiArr.filter { $0 != "10" && $0 != "" }.map { element -> String in
             guard let asciiNum = Int(element), let unicodeScalar = UnicodeScalar(asciiNum) else {
                 return ""
             }
             return "\(Character(unicodeScalar))"
-        }
-        return strArr.joined().trimmingCharacters(in: .whitespacesAndNewlines)
+        }.joined().trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

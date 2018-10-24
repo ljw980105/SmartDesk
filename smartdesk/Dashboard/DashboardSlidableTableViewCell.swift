@@ -11,9 +11,9 @@ import UIKit
 class DashboardSlidableTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     static let identifier = "DashboardSlidable"
-    let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
     
     var sectionIndex: Int = 0
+    var action: (() -> Void)?
     
     var controllableObject: BLEControllable? {
         didSet {
@@ -66,8 +66,11 @@ extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        hapticFeedback.impactOccurred()
-        if let cmd = controllableObject?.controls[indexPath.row].outgoingCommand {
+        Haptic.current.beep()
+        if let action = action,
+            controllableObject?.controls[indexPath.row].lightControlOptions != nil {
+            action()
+        } else if let cmd = controllableObject?.controls[indexPath.row].outgoingCommand {
             BLEManager.current.send(string: cmd)
         }
     }

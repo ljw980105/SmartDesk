@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */; };
-		0414C36E21746A0D008B64A7 /* SignalStrengthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414C36C21746A0D008B64A7 /* SignalStrengthTableViewCell.swift */; };
-		0414C36F21746A0D008B64A7 /* SignalStrengthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414C36D21746A0D008B64A7 /* SignalStrengthTableViewCell.xib */; };
 		043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */; };
 		043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */; };
 		043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */; };
@@ -18,6 +16,17 @@
 		043E1C8A217146A400B1ED56 /* BLEControlEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C89217146A400B1ED56 /* BLEControlEntity.swift */; };
 		043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8B217156BD00B1ED56 /* DeskLight.swift */; };
 		043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */; };
+		0465A4462180162100CA825A /* LightControlTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4442180162100CA825A /* LightControlTableViewController.swift */; };
+		0465A4472180162100CA825A /* LightControlTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A4452180162100CA825A /* LightControlTableViewController.xib */; };
+		0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4482180166D00CA825A /* LightControlOptions.swift */; };
+		0465A44C218024D700CA825A /* LightControlColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A44A218024D700CA825A /* LightControlColorTableViewCell.swift */; };
+		0465A44D218024D700CA825A /* LightControlColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A44B218024D700CA825A /* LightControlColorTableViewCell.xib */; };
+		0465A44F2180257A00CA825A /* LightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A44E2180257A00CA825A /* LightController.swift */; };
+		0465A45221804BF100CA825A /* LightControlColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A45021804BF100CA825A /* LightControlColorCollectionViewCell.swift */; };
+		0465A45321804BF100CA825A /* LightControlColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A45121804BF100CA825A /* LightControlColorCollectionViewCell.xib */; };
+		0465A4562180C1C000CA825A /* LightControlSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4542180C1C000CA825A /* LightControlSliderTableViewCell.swift */; };
+		0465A4572180C1C000CA825A /* LightControlSliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */; };
+		0465A4592181056B00CA825A /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4582181056B00CA825A /* Haptic.swift */; };
 		048E3EB921770E6600217DD8 /* TestAsciiStringConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */; };
 		048E3EBA21770E9A00217DD8 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
 		048E3EBB21770F2100217DD8 /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66942216DC64600B8795A /* BLEManagerDelegate.swift */; };
@@ -54,8 +63,6 @@
 
 /* Begin PBXFileReference section */
 		03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.debug.xcconfig"; sourceTree = "<group>"; };
-		0414C36C21746A0D008B64A7 /* SignalStrengthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalStrengthTableViewCell.swift; sourceTree = "<group>"; };
-		0414C36D21746A0D008B64A7 /* SignalStrengthTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignalStrengthTableViewCell.xib; sourceTree = "<group>"; };
 		043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSlidableTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,6 +71,17 @@
 		043E1C89217146A400B1ED56 /* BLEControlEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControlEntity.swift; sourceTree = "<group>"; };
 		043E1C8B217156BD00B1ED56 /* DeskLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskLight.swift; sourceTree = "<group>"; };
 		043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEControlCollectionViewCell.swift; sourceTree = "<group>"; };
+		0465A4442180162100CA825A /* LightControlTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlTableViewController.swift; sourceTree = "<group>"; };
+		0465A4452180162100CA825A /* LightControlTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlTableViewController.xib; sourceTree = "<group>"; };
+		0465A4482180166D00CA825A /* LightControlOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlOptions.swift; sourceTree = "<group>"; };
+		0465A44A218024D700CA825A /* LightControlColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlColorTableViewCell.swift; sourceTree = "<group>"; };
+		0465A44B218024D700CA825A /* LightControlColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlColorTableViewCell.xib; sourceTree = "<group>"; };
+		0465A44E2180257A00CA825A /* LightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightController.swift; sourceTree = "<group>"; };
+		0465A45021804BF100CA825A /* LightControlColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		0465A45121804BF100CA825A /* LightControlColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		0465A4542180C1C000CA825A /* LightControlSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlSliderTableViewCell.swift; sourceTree = "<group>"; };
+		0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlSliderTableViewCell.xib; sourceTree = "<group>"; };
+		0465A4582181056B00CA825A /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAsciiStringConversion.swift; sourceTree = "<group>"; };
 		048E3EC121782F2800217DD8 /* OutgoingCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingCommands.swift; sourceTree = "<group>"; };
 		048E3EC3217840D500217DD8 /* IncomingCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCommand.swift; sourceTree = "<group>"; };
@@ -117,12 +135,8 @@
 				043E1C84217141F700B1ED56 /* DashboardController.swift */,
 				04B66921216DBB4A00B8795A /* DashboardViewController.swift */,
 				048E3EC82179471A00217DD8 /* SignalStrengthViewController.swift */,
-				043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */,
-				043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */,
 				043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */,
 				043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */,
-				0414C36C21746A0D008B64A7 /* SignalStrengthTableViewCell.swift */,
-				0414C36D21746A0D008B64A7 /* SignalStrengthTableViewCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -138,6 +152,23 @@
 				048E3EC52178532300217DD8 /* CommandToIndex.swift */,
 			);
 			path = BLEControl;
+			sourceTree = "<group>";
+		};
+		0465A4432180156500CA825A /* LightControl */ = {
+			isa = PBXGroup;
+			children = (
+				0465A44E2180257A00CA825A /* LightController.swift */,
+				0465A4442180162100CA825A /* LightControlTableViewController.swift */,
+				0465A4452180162100CA825A /* LightControlTableViewController.xib */,
+				0465A4482180166D00CA825A /* LightControlOptions.swift */,
+				0465A44A218024D700CA825A /* LightControlColorTableViewCell.swift */,
+				0465A44B218024D700CA825A /* LightControlColorTableViewCell.xib */,
+				0465A45021804BF100CA825A /* LightControlColorCollectionViewCell.swift */,
+				0465A45121804BF100CA825A /* LightControlColorCollectionViewCell.xib */,
+				0465A4542180C1C000CA825A /* LightControlSliderTableViewCell.swift */,
+				0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */,
+			);
+			path = LightControl;
 			sourceTree = "<group>";
 		};
 		04B66913216DBB4A00B8795A = {
@@ -165,6 +196,7 @@
 			children = (
 				043E1C86217143B700B1ED56 /* BLEControl */,
 				043E1C7B2171370600B1ED56 /* Dashboard */,
+				0465A4432180156500CA825A /* LightControl */,
 				04B66946216EA26A00B8795A /* Shared */,
 				04B6693F216DBD0F00B8795A /* BLEManager */,
 				04B6691F216DBB4A00B8795A /* AppDelegate.swift */,
@@ -199,8 +231,11 @@
 		04B66946216EA26A00B8795A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */,
+				043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */,
 				04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */,
 				04B6694B2170100D00B8795A /* TimeoutableOperation.swift */,
+				0465A4582181056B00CA825A /* Haptic.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -311,11 +346,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0465A4472180162100CA825A /* LightControlTableViewController.xib in Resources */,
 				04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */,
-				0414C36F21746A0D008B64A7 /* SignalStrengthTableViewCell.xib in Resources */,
 				04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */,
+				0465A4572180C1C000CA825A /* LightControlSliderTableViewCell.xib in Resources */,
+				0465A44D218024D700CA825A /* LightControlColorTableViewCell.xib in Resources */,
 				043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */,
 				04B66925216DBB4A00B8795A /* Main.storyboard in Resources */,
+				0465A45321804BF100CA825A /* LightControlColorCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,18 +450,24 @@
 				048E3EC92179471A00217DD8 /* SignalStrengthViewController.swift in Sources */,
 				04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */,
 				043E1C88217143DE00B1ED56 /* BLEControllable.swift in Sources */,
+				0465A44F2180257A00CA825A /* LightController.swift in Sources */,
 				048E3EC4217840D500217DD8 /* IncomingCommand.swift in Sources */,
 				048E3EC62178532300217DD8 /* CommandToIndex.swift in Sources */,
+				0465A4462180162100CA825A /* LightControlTableViewController.swift in Sources */,
+				0465A44C218024D700CA825A /* LightControlColorTableViewCell.swift in Sources */,
 				04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */,
-				0414C36E21746A0D008B64A7 /* SignalStrengthTableViewCell.swift in Sources */,
 				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
 				043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */,
+				0465A4592181056B00CA825A /* Haptic.swift in Sources */,
+				0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */,
+				0465A4562180C1C000CA825A /* LightControlSliderTableViewCell.swift in Sources */,
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
 				043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */,
 				04B6694A216EA2E300B8795A /* BLEError.swift in Sources */,
 				048E3EC221782F2800217DD8 /* OutgoingCommands.swift in Sources */,
 				043E1C85217141F700B1ED56 /* DashboardController.swift in Sources */,
 				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
+				0465A45221804BF100CA825A /* LightControlColorCollectionViewCell.swift in Sources */,
 				043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */,
 				043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */,
 				04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */,

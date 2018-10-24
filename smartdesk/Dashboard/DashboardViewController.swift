@@ -101,6 +101,14 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
         if let cell = cell as? DashboardSlidableTableViewCell {
             cell.controllableObject = controller.bleControls[indexPath.row]
             cell.sectionIndex = indexPath.section
+            if let lightControl = controller.lightControl(in: indexPath.section) {
+                cell.action = { [weak self] in
+                    guard let strongSelf = self else { return }
+                    let lightVC = LightControlTableViewController(data: lightControl)
+                    lightVC.title = strongSelf.controller.bleControls[indexPath.row].sectionHeader
+                    strongSelf.navigationController?.pushViewController(lightVC, animated: true)
+                }
+            }
         }
         return cell ?? UITableViewCell()
     }

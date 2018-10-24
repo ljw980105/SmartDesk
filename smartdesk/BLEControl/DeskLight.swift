@@ -11,13 +11,30 @@ import Foundation
 class DeskLight: NSObject, BLEControllable {
     var containsSlider: Bool = false
     var sectionHeader: String = "Desk Light"
-    var controls: [BLEControlEntity] = [BLEControlEntity(command: OutgoingCommands.deskLightToggle,
-                                                         name: "On",
-                                                         incomingCommands: [.deskLightOff, .deskLightOn],
-                                                         isSwitch: true)]
+    var controls: [BLEControlEntity] = []
     
     override init() {
         super.init()
+        controls.append(BLEControlEntity(outgoingCommand: OutgoingCommands.deskLightToggle,
+                                         name: "On",
+                                         incomingCommands: [.deskLightOff, .deskLightOn],
+                                         isSwitch: true))
+        
+        var lightControls: [LightControlOptions: [String]] = [:]
+        lightControls[.higherColorTemp] = [OutgoingCommands.deskLightUpColorTemp]
+        lightControls[.lowerColorTemp] = [OutgoingCommands.deskLightReduceColorTemp]
+        lightControls[.higherBrightness] = [OutgoingCommands.deskLightUpBrightness]
+        lightControls[.lowerBrightness] = [OutgoingCommands.deskLightReduceBrightness]
+        lightControls[.colorKeys] = [OutgoingCommands.deskLightColorBlue,
+                                     OutgoingCommands.deskLightColorRed,
+                                     OutgoingCommands.deskLightColorGreen,
+                                     OutgoingCommands.deskLightColorYellow,
+                                     OutgoingCommands.deskLightColorWhite]
+        
+        controls.append(BLEControlEntity(outgoingCommand: "",
+                                         name: "Customize",
+                                         incomingCommands: [],
+                                         lightControlOptions: lightControls))
     }
     
 }

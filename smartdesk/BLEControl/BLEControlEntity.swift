@@ -14,7 +14,6 @@ import Foundation
 struct BLEControlEntity {
     
     enum BLEControlType {
-        case slider
         case toggle
         case generic
     }
@@ -25,21 +24,21 @@ struct BLEControlEntity {
     let name: String
     let controlType: BLEControlType
     let incomingCommands: [IncomingCommand]
+    let lightControlOptions: [LightControlOptions: [String]]?
     
-    init(command: String, name: String, incomingCommands: [IncomingCommand],
-         isSwitch: Bool = false, isSlider: Bool = false) {
-        self.outgoingCommand = command
+    init(outgoingCommand: String,
+         name: String,
+         incomingCommands: [IncomingCommand],
+         isSwitch: Bool = false,
+         lightControlOptions: [LightControlOptions: [String]]? = nil) {
+        self.outgoingCommand = outgoingCommand
         self.incomingCommands = incomingCommands
         self.name = name
+        self.lightControlOptions = lightControlOptions
         if isSwitch {
             controlType = .toggle
-        } else if isSlider {
-            controlType = .slider
         } else {
             controlType = .generic
-        }
-        if isSwitch && isSwitch == isSlider {
-            fatalError("This cannot be both a switch and a slider")
         }
     }
 }
