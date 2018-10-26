@@ -11,7 +11,7 @@ import UIKit
 class LightControlTableViewController: UITableViewController {
     let controller: LightController
     
-    init(data: [LightControlOptions: [String]]) {
+    init(data: [LightControlOptions: String]) {
         controller = LightController(data: data)
         super.init(nibName: "LightControlTableViewController", bundle: Bundle.main)
     }
@@ -32,6 +32,28 @@ class LightControlTableViewController: UITableViewController {
                            forCellReuseIdentifier: DashboardHeaderTableViewCell.identifier)
         tableView.register(UINib(nibName: "LightControlSliderTableViewCell", bundle: Bundle.main),
                            forCellReuseIdentifier: LightControlSliderTableViewCell.identifier)
+        
+        addColorPopover()
+    }
+    
+    private func addColorPopover() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self, action: #selector(showColorPicker))
+    }
+    
+    @objc private func showColorPicker() {
+        let colorPicker = ColorPickerViewController()
+        colorPicker.modalTransitionStyle = .crossDissolve
+        colorPicker.modalPresentationStyle = .popover
+        colorPicker.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        colorPicker.preferredContentSize = CGSize(width: 320, height: 250)
+        colorPicker.didSelectColor = { [weak self] color in
+            guard let strongSelf = self else { return }
+            let cmd = strongSelf.controller.data[strongSelf.controller.data.count - 1].first ?? ""
+            BLEManager.current.send(colorCommand: cmd, color: color)
+        }
+        colorPicker.popoverPresentationController?.delegate = self
+        present(colorPicker, animated: true, completion: nil)
     }
 }
 
@@ -52,12 +74,11 @@ extension LightControlTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == controller.data.count - 1 {
             // dequeue the color controls
-            let cell = tableView.dequeueReusableCell(withIdentifier: LightControlColorTableViewCell.identifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: LightControlColorTableViewCell.identifier,
+                                                     for: indexPath)
             if let cell = cell as? LightControlColorTableViewCell {
-                let colorStrings = controller.data[indexPath.section]
-                // map the string to color, then remove all nil values
-                cell.colors = colorStrings.map { controller.color(from: $0) }.compactMap { $0 }
-                cell.colorStrings = colorStrings
+                cell.colors = controller.colors
+                cell.colorCommand = controller.data[indexPath.section].first ?? ""
             }
             return cell
         }
@@ -87,8 +108,10 @@ extension LightControlTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+}
+
+extension LightControlTableViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

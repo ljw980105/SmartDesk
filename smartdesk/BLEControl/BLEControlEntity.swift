@@ -24,13 +24,13 @@ struct BLEControlEntity {
     let name: String
     let controlType: BLEControlType
     let incomingCommands: [IncomingCommand]
-    let lightControlOptions: [LightControlOptions: [String]]?
+    let lightControlOptions: [LightControlOptions: String]?
     
     init(outgoingCommand: String,
          name: String,
          incomingCommands: [IncomingCommand],
          isSwitch: Bool = false,
-         lightControlOptions: [LightControlOptions: [String]]? = nil) {
+         lightControlOptions: [LightControlOptions: String]? = nil) {
         self.outgoingCommand = outgoingCommand
         self.incomingCommands = incomingCommands
         self.name = name

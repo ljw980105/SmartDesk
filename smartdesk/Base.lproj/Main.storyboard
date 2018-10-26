@@ -71,9 +71,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WGV-bX-FRI">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="x4Q-Pu-Eq8"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DashboardSlidable" rowHeight="97" id="RG1-q2-y72" customClass="DashboardSlidableTableViewCell" customModule="smartdesk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="97"/>
@@ -152,7 +149,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="WGV-bX-FRI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AWM-Vq-MIU"/>
                             <constraint firstItem="WGV-bX-FRI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MJS-9i-N6R"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WGV-bX-FRI" secondAttribute="trailing" id="OOl-b9-IPj"/>
                             <constraint firstItem="WGV-bX-FRI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SEz-Nx-SaX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WGV-bX-FRI" secondAttribute="bottom" id="pke-p5-9lh"/>
                         </constraints>
@@ -177,7 +176,6 @@
                     <connections>
                         <outlet property="signalStrengthItem" destination="3DO-Wr-Tr1" id="e9A-0d-1Gc"/>
                         <outlet property="tableView" destination="WGV-bX-FRI" id="A5f-WS-ttY"/>
-                        <outlet property="tableViewWidth" destination="x4Q-Pu-Eq8" id="H03-tx-2cK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

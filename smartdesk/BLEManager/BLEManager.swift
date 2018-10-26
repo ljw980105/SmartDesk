@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreBluetooth
+import UIKit
 
 /**
  * Note: dispatch to the main thread when calling delegate methods.
@@ -29,7 +30,7 @@ class BLEManager: NSObject {
     private let timeOutInterval: TimeInterval = 5.0
     private var timeOutTimer: Timer?
     
-    override init() {
+    private override init() {
         super.init()
         bluetoothManager = CBCentralManager(delegate: self, queue: DispatchQueue.global(qos: .userInitiated))
     }
@@ -74,8 +75,18 @@ class BLEManager: NSObject {
                               for: characteristic, type: .withoutResponse)
     }
     
+    func send(colorCommand: String, color: UIColor) {
+        guard let peripheral = smartDesk, let characteristic = smartDeskDataPoint else {
+            print("Not ready to send data")
+            return
+        }
+        // send 4 bytes of color information to the peripheral
+        peripheral.writeValue(Data(bytes: BLEManager.generateByteArray(for: colorCommand, color: color)),
+                              for: characteristic, type: .withoutResponse)
+    }
+    
     /**
-     * Read the signal strength of the BLE connection. The ressult is passed
+     * Read the signal strength of the BLE connection. The result is passed
      * in as a parameter in the delegate callback `didReceiveRSSIReading(reading:status:)`.
      */
     func readSignalStrength() {
@@ -237,5 +248,23 @@ extension BLEManager {
             }
             return "\(Character(unicodeScalar))"
         }.joined().trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    /**
+     * Generate 4 bytes of data with the first byte being the command and last 3 bytes being the rgb values.
+     * - parameter command: the command used to send the indicate what this byte arr is for
+     * - parameter color: the color to send
+     */
+    class func generateByteArray(for command: String, color: UIColor) -> [UInt8] {
+        var bytesToSend = [UInt8]()
+        // add the ascii representation of the command to array
+        bytesToSend.append(UInt8(command.unicodeScalars.first!.value))
+        // append the respective rgb values to byte array
+        var red: CGFloat = 0.0, green: CGFloat = 0.0, blue: CGFloat = 0.0
+        color.getRed(&red, green: &green, blue: &blue, alpha: nil)
+        bytesToSend.append(UInt8(red * 255))
+        bytesToSend.append(UInt8(green * 255))
+        bytesToSend.append(UInt8(blue * 255))
+        return bytesToSend
     }
 }

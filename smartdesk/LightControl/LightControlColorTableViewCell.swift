@@ -13,7 +13,7 @@ class LightControlColorTableViewCell: UITableViewCell {
     
     static let identifier = "lightControlColor"
 
-    var colorStrings: [String] = []
+    var colorCommand: String = ""
     var colors: [UIColor] = [] {
         didSet {
             collectionView.reloadData()
@@ -57,7 +57,7 @@ extension LightControlColorTableViewCell: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Haptic.current.beep()
-        BLEManager.current.send(string: colorStrings[indexPath.row])
+        BLEManager.current.send(colorCommand: colorCommand, color: colors[indexPath.row])
     }
     
 }

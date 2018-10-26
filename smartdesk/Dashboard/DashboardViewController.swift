@@ -10,7 +10,6 @@ import UIKit
 
 class DashboardViewController: UIViewController, BLEManagerDelegate {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewWidth: NSLayoutConstraint!
     @IBOutlet weak var signalStrengthItem: UIBarButtonItem!
     
     private let controller = DashboardController()
@@ -38,12 +37,6 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         BLEManager.current.delegate = self
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            tableViewWidth.constant = 768
-        } else {
-            tableViewWidth.constant = UIScreen.main.bounds.width
-        }
     }
     
     // MARK: - BLEManagerDelegate
@@ -97,7 +90,8 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier,
+                                                 for: indexPath)
         if let cell = cell as? DashboardSlidableTableViewCell {
             cell.controllableObject = controller.bleControls[indexPath.row]
             cell.sectionIndex = indexPath.section
@@ -110,7 +104,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
                 }
             }
         }
-        return cell ?? UITableViewCell()
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

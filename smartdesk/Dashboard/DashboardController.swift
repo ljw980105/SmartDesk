@@ -15,7 +15,7 @@ class DashboardController: NSObject {
         super.init()
     }
     
-    func lightControl(in section: Int) -> [LightControlOptions : [String]]? {
+    func lightControl(in section: Int) -> [LightControlOptions : String]? {
         return bleControls[section].controls.filter{ $0.lightControlOptions != nil }.first?.lightControlOptions
     }
     

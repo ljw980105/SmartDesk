@@ -29,8 +29,8 @@ class LightControlSliderTableViewCell: UITableViewCell {
         self.function = function
         switch self.function {
         case .warmth:
-            lightSlider.minimumTrackTintColor = UIColor.cyan
-            lightSlider.maximumTrackTintColor = UIColor.orange
+            lightSlider.minimumTrackTintColor = UIColor.orange
+            lightSlider.maximumTrackTintColor = UIColor.cyan
         case .brightness:
             lightSlider.minimumTrackTintColor = UIColor.black
             lightSlider.maximumTrackTintColor = UIColor.lightGray

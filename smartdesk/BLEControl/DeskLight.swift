@@ -20,16 +20,12 @@ class DeskLight: NSObject, BLEControllable {
                                          incomingCommands: [.deskLightOff, .deskLightOn],
                                          isSwitch: true))
         
-        var lightControls: [LightControlOptions: [String]] = [:]
-        lightControls[.higherColorTemp] = [OutgoingCommands.deskLightUpColorTemp]
-        lightControls[.lowerColorTemp] = [OutgoingCommands.deskLightReduceColorTemp]
-        lightControls[.higherBrightness] = [OutgoingCommands.deskLightUpBrightness]
-        lightControls[.lowerBrightness] = [OutgoingCommands.deskLightReduceBrightness]
-        lightControls[.colorKeys] = [OutgoingCommands.deskLightColorBlue,
-                                     OutgoingCommands.deskLightColorRed,
-                                     OutgoingCommands.deskLightColorGreen,
-                                     OutgoingCommands.deskLightColorYellow,
-                                     OutgoingCommands.deskLightColorWhite]
+        var lightControls: [LightControlOptions: String] = [:]
+        lightControls[.higherColorTemp] = OutgoingCommands.deskLightUpColorTemp
+        lightControls[.lowerColorTemp] = OutgoingCommands.deskLightReduceColorTemp
+        lightControls[.higherBrightness] = OutgoingCommands.deskLightUpBrightness
+        lightControls[.lowerBrightness] = OutgoingCommands.deskLightReduceBrightness
+        lightControls[.colorKeys] = OutgoingCommands.deskLightColor
         
         controls.append(BLEControlEntity(outgoingCommand: "",
                                          name: "Customize",

@@ -9,9 +9,11 @@
 import Foundation
 
 /**
- * A caseless enum that holds all commands sent to the Arduino
+ * A caseless enum that holds all commands sent to the Arduino.
  *  - Make sure there are no duplicates
- *  - As of now the program can only send one character (one byte) at a time
+ *  - As of now the program should only send one character (one byte) at a time
+ * for speed purposes. It's a little problematic to send multiple characters
+ * at once because Arduino's `readString()` method which reads multi chars is slow
  */
 enum OutgoingCommands {
     // desk light
@@ -20,10 +22,6 @@ enum OutgoingCommands {
     static let deskLightReduceBrightness = "C"
     static let deskLightUpColorTemp = "D"
     static let deskLightReduceColorTemp = "E"
-    static let deskLightColorRed = "F"
-    static let deskLightColorGreen = "G"
-    static let deskLightColorBlue = "H"
-    static let deskLightColorYellow = "I"
-    static let deskLightColorWhite = "J"
+    static let deskLightColor = "F"
     
 }

@@ -12,29 +12,21 @@ import UIKit
 class LightController {
     let data: [[String]]
     let sectionHeaders = ["Brightness", "Warmth", "Colors"]
-    private let colors: [String: UIColor] = [OutgoingCommands.deskLightColorRed: UIColor.red,
-                                             OutgoingCommands.deskLightColorGreen: UIColor.green,
-                                             OutgoingCommands.deskLightColorBlue: UIColor.blue,
-                                             OutgoingCommands.deskLightColorYellow: UIColor.yellow,
-                                             OutgoingCommands.deskLightColorWhite: UIColor.white]
     
-    init(data: [LightControlOptions: [String]]) {
+    let colors = [UIColor.white, UIColor.red, UIColor.green,
+                  UIColor.blue, UIColor.yellow, UIColor.magenta, UIColor.orange]
+    
+    init(data: [LightControlOptions: String]) {
         var brightnessControls = [String]()
-        brightnessControls.append(contentsOf: data[LightControlOptions.higherBrightness] ?? [])
-        brightnessControls.append(contentsOf: data[LightControlOptions.lowerBrightness] ?? [])
+        brightnessControls.append(data[LightControlOptions.higherBrightness] ?? "")
+        brightnessControls.append(data[LightControlOptions.lowerBrightness] ?? "")
         var tempControls = [String]()
-        tempControls.append(contentsOf: data[LightControlOptions.higherColorTemp] ?? [])
-        tempControls.append(contentsOf: data[LightControlOptions.lowerColorTemp] ?? [])
+        tempControls.append(data[LightControlOptions.higherColorTemp] ?? "")
+        tempControls.append(data[LightControlOptions.lowerColorTemp] ?? "")
         var final: [[String]] = []
         final.append(brightnessControls)
         final.append(tempControls)
-        final.append(data[LightControlOptions.colorKeys] ?? [])
+        final.append([data[LightControlOptions.colorKeys] ?? ""])
         self.data = final
     }
-    
-    func color(from colorStrings: String) -> UIColor? {
-        //return colors[colorStrings.components(separatedBy: "-").last ?? ""]
-        return colors[colorStrings]
-    }
-
 }
