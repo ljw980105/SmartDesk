@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-internal protocol HSBColorPickerDelegate : NSObjectProtocol {
-    func HSBColorColorPickerTouched(sender:HSBColorPicker, color:UIColor, point:CGPoint, state:UIGestureRecognizer.State)
+internal protocol HSBColorPickerDelegate: NSObjectProtocol {
+    func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor,
+                                    point: CGPoint, state: UIGestureRecognizer.State)
 }
 
 /**
@@ -31,7 +32,6 @@ class HSBColorPicker : UIView {
     
     
     private func initialize() {
-        
         self.clipsToBounds = true
         let touchGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.touchedColor(gestureRecognizer:)))
         touchGesture.minimumPressDuration = 0
@@ -87,7 +87,7 @@ class HSBColorPicker : UIView {
         var yPos: CGFloat = 0
         let halfHeight = (self.bounds.height / 2)
         
-        if (brightness >= 0.99) {
+        if brightness >= 0.99 {
             let percentageY = powf(Float(saturation), 1.0 / saturationExponentTop)
             yPos =  CGFloat(percentageY) * halfHeight
         } else {
@@ -104,6 +104,7 @@ class HSBColorPicker : UIView {
         let point = gestureRecognizer.location(in: self)
         let color = getColorAtPoint(point: point)
         
-        self.delegate?.HSBColorColorPickerTouched(sender: self, color: color, point: point, state:gestureRecognizer.state)
+        self.delegate?.HSBColorColorPickerTouched(sender: self, color: color,
+                                                  point: point, state:gestureRecognizer.state)
     }
 }

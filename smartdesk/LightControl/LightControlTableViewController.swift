@@ -37,7 +37,7 @@ class LightControlTableViewController: UITableViewController {
     }
     
     private func addColorPopover() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "More Colors", style: .plain,
                                                             target: self, action: #selector(showColorPicker))
     }
     
@@ -48,8 +48,7 @@ class LightControlTableViewController: UITableViewController {
         colorPicker.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         colorPicker.preferredContentSize = CGSize(width: 320, height: 250)
         colorPicker.didSelectColor = { [weak self] color in
-            guard let strongSelf = self else { return }
-            let cmd = strongSelf.controller.data[strongSelf.controller.data.count - 1].first ?? ""
+            let cmd = self?.controller.data.last?.first ?? ""
             BLEManager.current.send(colorCommand: cmd, color: color)
         }
         colorPicker.popoverPresentationController?.delegate = self
