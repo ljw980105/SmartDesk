@@ -42,8 +42,9 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     // MARK: - BLEManagerDelegate
     
     func didReceiveError(error: BLEError?) {
-        error?.showErrorMessage()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            error?.showErrorMessage()
+        }
         signalStrengthTimer?.invalidate()
         BLEManager.current.delegate = nil
     }
@@ -65,6 +66,7 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     
     // MARK: - IBActions
     @IBAction func disconnectBLE(_ sender: UIBarButtonItem) {
+        BLEManager.current.isBLEDisconnectedByUser = true
         BLEManager.current.disconnect()
         dismiss(animated: true, completion: nil)
         BLEManager.current.delegate = nil

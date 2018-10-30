@@ -32,6 +32,7 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
     
     func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor,
                                     point: CGPoint, state: UIGestureRecognizer.State) {
+        Haptic.current.beep()
         didSelectColor?(color)
         colorPicker.delegate = nil
         popoverPresentationController?.delegate = nil

@@ -19,6 +19,8 @@ class BLEManager: NSObject {
     
     weak var delegate: BLEManagerDelegate?
     
+    var isBLEDisconnectedByUser = false
+    
     private var bluetoothManager: CBCentralManager!
     private var smartDesk: CBPeripheral?
     private var smartDeskDataPoint: CBCharacteristic?
@@ -129,6 +131,7 @@ extension BLEManager: CBCentralManagerDelegate {
     
     func handle(updatedState state: CBManagerState) {
         DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
             switch state {
             case .poweredOff:
                 print("BLE Manager Powered off State")
@@ -136,6 +139,11 @@ extension BLEManager: CBCentralManagerDelegate {
             case .poweredOn:
                 print("BLE Manager Powered on State")
             default:
+                // not showing the error if the BLE is purposefully disconnected by the user
+                guard !strongSelf.isBLEDisconnectedByUser else {
+                    strongSelf.isBLEDisconnectedByUser = false
+                    return
+                }
                 if let error = BLEError.error(fromBLEState: state) {
                     self?.delegate?.didReceiveError(error: error)
                 }
