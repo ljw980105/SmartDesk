@@ -18,7 +18,7 @@ class Haptic {
     private var haptic: UIImpactFeedbackGenerator
     private var selectionHaptic: UISelectionFeedbackGenerator
     
-    init() {
+    private init() {
         haptic = UIImpactFeedbackGenerator(style: .medium)
         selectionHaptic = UISelectionFeedbackGenerator()
     }

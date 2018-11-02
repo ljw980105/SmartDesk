@@ -11,5 +11,4 @@ import Foundation
 protocol BLEControllable {
     var sectionHeader: String { get set }
     var controls: [BLEControlEntity] { get set }
-    var containsSlider: Bool { get set }
 }

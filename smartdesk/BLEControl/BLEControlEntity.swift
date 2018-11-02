@@ -19,24 +19,28 @@ struct BLEControlEntity {
     }
     
     /** the command used to interact with the ble module.*/
-    let outgoingCommand: String
+    let outgoingCommand: String?
     /** The name displayed on the cell.*/
     let name: String
     let controlType: BLEControlType
     let incomingCommands: [IncomingCommand]
     let lightControlOptions: [LightControlOptions: String]?
     
-    init(outgoingCommand: String,
-         name: String,
-         incomingCommands: [IncomingCommand],
-         isSwitch: Bool = false,
+    init(name: String,
+         outgoingCommand: String? = nil ,
+         incomingCommands: [IncomingCommand] = [],
+         isSwitch: Bool? = false,
          lightControlOptions: [LightControlOptions: String]? = nil) {
         self.outgoingCommand = outgoingCommand
         self.incomingCommands = incomingCommands
         self.name = name
         self.lightControlOptions = lightControlOptions
-        if isSwitch {
-            controlType = .toggle
+        if let isSwitch = isSwitch {
+            if isSwitch {
+                controlType = .toggle
+            } else {
+                controlType = .generic
+            }
         } else {
             controlType = .generic
         }
