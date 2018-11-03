@@ -26,7 +26,8 @@ class DeskLight: NSObject, BLEControllable {
         lightControls[.lowerBrightness] = OutgoingCommands.deskLightReduceBrightness
         lightControls[.colorKeys] = OutgoingCommands.deskLightColor
         
-        controls.append(BLEControlEntity(name: "Customize", lightControlOptions: lightControls))
+        controls.append(BLEControlEntity(name: "Customize", isCustomization: true,
+                                         lightControlOptions: lightControls))
     }
     
 }

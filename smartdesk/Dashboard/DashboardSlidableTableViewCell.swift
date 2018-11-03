@@ -41,6 +41,16 @@ class DashboardSlidableTableViewCell: UITableViewCell {
         if let cell = collectionView.cellForItem(at: indexPath) as? BLEControlCollectionViewCell {
             cell.adjustUI(with: command)
         }
+        // if the cell after the current cell is a customize cell, disable/enable it
+        let customizationIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+        if let customizationCell = collectionView.cellForItem(at: customizationIndexPath) as? BLEControlCollectionViewCell,
+          controllableObject?.controls.last?.controlType == .customize {
+            let stateToAnimateTo = command.rawValue.contains("ON")
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+                customizationCell.alpha = stateToAnimateTo ? 1.0 : 0.5
+                customizationCell.isUserInteractionEnabled = stateToAnimateTo
+            }, completion: nil)
+        }
     }
     
 }

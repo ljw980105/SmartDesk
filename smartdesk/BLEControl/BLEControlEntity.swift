@@ -14,6 +14,7 @@ import Foundation
 struct BLEControlEntity {
     
     enum BLEControlType {
+        case customize
         case toggle
         case generic
     }
@@ -29,18 +30,19 @@ struct BLEControlEntity {
     init(name: String,
          outgoingCommand: String? = nil ,
          incomingCommands: [IncomingCommand] = [],
-         isSwitch: Bool? = false,
+         isSwitch: Bool = false,
+         isCustomization: Bool = false,
          lightControlOptions: [LightControlOptions: String]? = nil) {
         self.outgoingCommand = outgoingCommand
         self.incomingCommands = incomingCommands
         self.name = name
         self.lightControlOptions = lightControlOptions
-        if let isSwitch = isSwitch {
-            if isSwitch {
-                controlType = .toggle
-            } else {
-                controlType = .generic
-            }
+        if isSwitch && isCustomization {
+            fatalError("Cannot be both a switch and a customizaiton button")
+        } else if isSwitch {
+            controlType = .toggle
+        } else if isCustomization {
+            controlType = .customize
         } else {
             controlType = .generic
         }

@@ -66,7 +66,6 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     
     // MARK: - IBActions
     @IBAction func disconnectBLE(_ sender: UIBarButtonItem) {
-        BLEManager.current.isBLEDisconnectedByUser = true
         BLEManager.current.disconnect()
         dismiss(animated: true, completion: nil)
         BLEManager.current.delegate = nil

@@ -36,12 +36,14 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
         switch command {
         case .deskLightOn:
             statusLabel.text = "On"
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
+                           animations: { [weak self] in
                 self?.backdrop.backgroundColor = self?.onColor
                 }, completion: nil)
         case .deskLightOff:
             statusLabel.text = "Off"
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
+                           animations: { [weak self] in
                 self?.backdrop.backgroundColor = self?.offColor
                 }, completion: nil)
         }
