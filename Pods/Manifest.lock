@@ -1,18 +1,22 @@
 PODS:
+  - lottie-ios (2.5.2)
   - SwiftMessages (6.0.0):
     - SwiftMessages/App (= 6.0.0)
   - SwiftMessages/App (6.0.0)
 
 DEPENDENCIES:
+  - lottie-ios
   - SwiftMessages
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - lottie-ios
     - SwiftMessages
 
 SPEC CHECKSUMS:
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   SwiftMessages: da7c981256a65b3e58022d9027a36584cf4eccf5
 
-PODFILE CHECKSUM: d21b60014727a27c0004e8bbc441dec78004de1d
+PODFILE CHECKSUM: c71d917f741d654b96b71aaf83ec719438d42609
 
 COCOAPODS: 1.5.3

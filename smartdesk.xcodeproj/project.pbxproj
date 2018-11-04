@@ -51,6 +51,8 @@
 		04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */; };
 		04B6694A216EA2E300B8795A /* BLEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66949216EA2E300B8795A /* BLEError.swift */; };
 		04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6694B2170100D00B8795A /* TimeoutableOperation.swift */; };
+		04EB8785218E2D5E00CD2344 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8784218E2D5E00CD2344 /* Common.swift */; };
+		04EB878B218E44B700CD2344 /* TransitionAnimation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EB878A218E44B700CD2344 /* TransitionAnimation2.json */; };
 		382C4C5740DB2458EA19902D /* Pods_smartdeskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesWrapper.swift; sourceTree = "<group>"; };
 		04B66949216EA2E300B8795A /* BLEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B6694B2170100D00B8795A /* TimeoutableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutableOperation.swift; sourceTree = "<group>"; };
+		04EB8784218E2D5E00CD2344 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		04EB878A218E44B700CD2344 /* TransitionAnimation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TransitionAnimation2.json; sourceTree = "<group>"; };
 		1F7ECF436E5DB71B8BD43EFA /* Pods-smartdeskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdeskTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C0BB77FED39123153A32B12 /* Pods-smartdeskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdeskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdeskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +207,7 @@
 		04B6691E216DBB4A00B8795A /* smartdesk */ = {
 			isa = PBXGroup;
 			children = (
+				04EB877A218D5F0C00CD2344 /* Animations */,
 				043E1C86217143B700B1ED56 /* BLEControl */,
 				043E1C7B2171370600B1ED56 /* Dashboard */,
 				0465A4432180156500CA825A /* LightControl */,
@@ -245,8 +250,17 @@
 				04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */,
 				04B6694B2170100D00B8795A /* TimeoutableOperation.swift */,
 				0465A4582181056B00CA825A /* Haptic.swift */,
+				04EB8784218E2D5E00CD2344 /* Common.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		04EB877A218D5F0C00CD2344 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				04EB878A218E44B700CD2344 /* TransitionAnimation2.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		F12199BE41D7D19E9900C053 /* Frameworks */ = {
@@ -358,6 +372,7 @@
 				0465A4472180162100CA825A /* LightControlTableViewController.xib in Resources */,
 				04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */,
 				04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */,
+				04EB878B218E44B700CD2344 /* TransitionAnimation2.json in Resources */,
 				0465A4572180C1C000CA825A /* LightControlSliderTableViewCell.xib in Resources */,
 				0465A44D218024D700CA825A /* LightControlColorTableViewCell.xib in Resources */,
 				043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */,
@@ -385,10 +400,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -468,6 +485,7 @@
 				04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */,
 				0450739C2182DB4100470900 /* ColorPickerViewController.swift in Sources */,
 				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
+				04EB8785218E2D5E00CD2344 /* Common.swift in Sources */,
 				043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */,
 				0465A4592181056B00CA825A /* Haptic.swift in Sources */,
 				0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */,

@@ -36,7 +36,24 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = .black
         BLEManager.current.delegate = self
+        if UserDefaults.isTransitionAnimationNeeded {
+            tableView.backgroundColor = UIColor.themeColor
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.isTransitionAnimationNeeded {
+            UserDefaults.setTransitionAnimationNotNeeded()
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],animations: { [weak self] in
+                self?.tableView.backgroundColor = UIColor.white
+                }, completion: { [weak self] _ in
+                    self?.controller.bleControls = [DeskLight()]
+                    self?.tableView.reloadData()
+            })
+        }
     }
     
     // MARK: - BLEManagerDelegate

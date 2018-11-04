@@ -8,6 +8,7 @@ target 'smartdesk' do
   # Pods for smartdesk
     # pod 'JLActivityIndicator'
     pod 'SwiftMessages'
+    pod 'lottie-ios'
 
     target 'smartdeskTests' do
         inherit! :search_paths

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Lottie
 
-class ConnectionViewController: UIViewController, BLEManagerDelegate {
+class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var connectButton: UIButton!
     
@@ -33,17 +34,14 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate {
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if BLEManager.current.delegate == nil {
-            BLEManager.current.delegate = self
-        }
-    }
-    
     // MARK: - IBActions
     
     @IBAction func connect(_ sender: UIButton) {
         disableUI()
+        if BLEManager.current.delegate == nil {
+            BLEManager.current.delegate = self
+        }
+        UserDefaults.setTransitionAnimationNeeded()
         BLEManager.current.connect()
     }
     
@@ -73,6 +71,28 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate {
         connectButton.isEnabled = true
         connectButton.alpha = 1
         connectButton.setTitle("Connect", for: .normal)
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination
+        destinationVC.modalPresentationStyle = .custom
+        destinationVC.transitioningDelegate = self
+    }
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return LOTAnimationTransitionController(animationNamed: "TransitionAnimation2",
+                                                fromLayerNamed: nil,
+                                                toLayerNamed: "outLayer",
+                                                applyAnimationTransform: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     
