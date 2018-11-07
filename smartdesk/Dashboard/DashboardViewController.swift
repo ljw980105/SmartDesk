@@ -47,11 +47,13 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         super.viewDidAppear(animated)
         if UserDefaults.isTransitionAnimationNeeded {
             UserDefaults.setTransitionAnimationNotNeeded()
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],animations: { [weak self] in
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
+                           animations: { [weak self] in
                 self?.tableView.backgroundColor = UIColor.white
                 }, completion: { [weak self] _ in
-                    self?.controller.bleControls = [DeskLight()]
-                    self?.tableView.reloadData()
+                    guard let strongSelf = self else { return }
+                    strongSelf.controller.bleControls = strongSelf.controller.controls
+                    strongSelf.tableView.reloadData()
             })
         }
     }
@@ -78,6 +80,10 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
         guard let cmdToIndex = CommandToIndex.currentTable[command] else { return }
         if let cells = tableView.cellForRow(at: IndexPath(row: 0, section: cmdToIndex.indexInTableView)) as? DashboardSlidableTableViewCell {
             cells.performOperations(onCellWith: cmdToIndex.collecIndexPath, command: command)
+            
+            //perform updates on the data structure to make sure they are re-dequeued correctly
+            controller.updateData(cmdToIndex: cmdToIndex, cell: cells)
+            
         }
     }
     
@@ -111,13 +117,14 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier,
                                                  for: indexPath)
         if let cell = cell as? DashboardSlidableTableViewCell {
-            cell.controllableObject = controller.bleControls[indexPath.row]
+            // row is always 0, but section indexes corresponds to the data structure
+            cell.controllableObject = controller.bleControls[indexPath.section]
             cell.sectionIndex = indexPath.section
             if let lightControl = controller.lightControl(in: indexPath.section) {
                 cell.action = { [weak self] in
                     guard let strongSelf = self else { return }
                     let lightVC = LightControlTableViewController(data: lightControl)
-                    lightVC.title = strongSelf.controller.bleControls[indexPath.row].sectionHeader
+                    lightVC.title = strongSelf.controller.bleControls[indexPath.section].sectionHeader
                     strongSelf.navigationController?.pushViewController(lightVC, animated: true)
                 }
             }

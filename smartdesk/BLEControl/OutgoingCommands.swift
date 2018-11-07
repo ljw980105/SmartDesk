@@ -24,4 +24,23 @@ enum OutgoingCommands {
     static let deskLightReduceColorTemp = "E"
     static let deskLightColor = "F"
     
+    // whiteboard light
+    static let whiteboardLightToggle = "G"
+    static let whiteboardLightUpBrightness = "H"
+    static let whiteboardLightReduceBrightness = "I"
+    static let whiteboardLightUpColorTemp = "J"
+    static let whiteboardLightReduceColorTemp = "K"
+    static let whiteboardLightColor = "L"
+    
+    // whiteboard movement
+    static let whiteboardUp = "M"
+    static let whiteboardDown = "N"
+    static let whiteboardEraseToggle = "O"
+    
+    // lockable compartment
+    static let lockableToggle = "P"
+    
+    // outlets
+    static let outletToggle = "Q"
+    
 }

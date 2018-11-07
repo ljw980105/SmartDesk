@@ -80,6 +80,14 @@ extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollection
         if let action = action,
             controllableObject?.controls[indexPath.row].lightControlOptions != nil {
             action()
+        } else if let controllable = controllableObject?.controls[indexPath.row],
+            let cmd = controllable.outgoingCommand,
+            case .biometric = controllable.controlType {
+            // biometric !!!!!!!
+            BiometricsController.loginWithBiometrics(onSuccess: {
+                BLEManager.current.send(string: cmd)
+            })
+            
         } else if let cmd = controllableObject?.controls[indexPath.row].outgoingCommand {
             BLEManager.current.send(string: cmd)
         }

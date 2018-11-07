@@ -12,4 +12,12 @@ enum IncomingCommand: String {
     // desk light
     case deskLightOn = "D-ON"
     case deskLightOff = "D-OF"
+    
+    // whiteboard light
+    case whiteboardLightOn = "W-ON"
+    case whiteboardLightOff = "W-OF"
+    
+    // whiteboard erase
+    case whiteboardEraseOn = "W-EO"
+    case whiteboardEraseOff = "W-EF"
 }

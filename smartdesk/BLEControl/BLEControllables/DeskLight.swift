@@ -17,7 +17,7 @@ class DeskLight: NSObject, BLEControllable {
         controls.append(BLEControlEntity(name: "On",
                                          outgoingCommand: OutgoingCommands.deskLightToggle,
                                          incomingCommands: [.deskLightOff, .deskLightOn],
-                                         isSwitch: true))
+                                         switchLabels: ("On", "Off")))
         
         var lightControls: [LightControlOptions: String] = [:]
         lightControls[.higherColorTemp] = OutgoingCommands.deskLightUpColorTemp

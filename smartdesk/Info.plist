@@ -43,5 +43,7 @@
 	</array>
     <key>NSBluetoothPeripheralUsageDescription</key>
     <string>This app needs to send data to the smart desk for remote control features</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>In order to login with TouchID or FaceID, we need your permission. </string>
 </dict>
 </plist>

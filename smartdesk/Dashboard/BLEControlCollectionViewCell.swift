@@ -15,13 +15,38 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
     
     private let offColor = UIColor(red: 252/255, green: 184/255, blue: 0/255, alpha: 1.0)
     private let onColor = UIColor(red: 23/255, green: 162/255, blue: 18/255, alpha: 1.0)
+    private let defaultColor = UIColor(red: 232/255, green: 232/255, blue: 232/255, alpha: 1.0)
+   
+    private lazy var lookUpTable: [String: UIColor] = {
+        var table: [String: UIColor] = [:]
+        table["On"] = onColor
+        table["Off"] = offColor
+        table["Erase"] = offColor
+        table["NoErase"] = onColor
+        table["Locked"] = UIColor.red
+        table["Unlocked"] = onColor
+        table["Front"] = UIColor.purple
+        table["Side"] = UIColor.brown
+        return table
+    }()
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        backdrop.backgroundColor = defaultColor
+//        statusLabel.textColor = UIColor.themeColor
+//    }
     
     var controllableObject: BLEControlEntity? {
         didSet {
             statusLabel.text = controllableObject?.name
-            if controllableObject?.name == "On" {
-                backdrop.backgroundColor = onColor
-                statusLabel.textColor = UIColor.white
+            if let controlType = controllableObject?.controlType {
+                if case .toggle = controlType {
+                    statusLabel.textColor = UIColor.white
+                    backdrop.backgroundColor = lookUpTable[controllableObject?.name ?? ""]
+                } else if case .biometric = controlType {
+                    statusLabel.textColor = UIColor.white
+                    backdrop.backgroundColor = lookUpTable[controllableObject?.name ?? ""]
+                }
             }
         }
     }
@@ -34,17 +59,20 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
     
     func adjustUI(with command: IncomingCommand) {
         switch command {
-        case .deskLightOn:
-            statusLabel.text = "On"
+        case .deskLightOn, .whiteboardLightOn, .whiteboardEraseOn:
+            let colorStr = controllableObject?.switchLabels?.0 ?? ""
+            statusLabel.text = colorStr
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
                            animations: { [weak self] in
-                self?.backdrop.backgroundColor = self?.onColor
+                
+                self?.backdrop.backgroundColor = self?.lookUpTable[colorStr]
                 }, completion: nil)
-        case .deskLightOff:
-            statusLabel.text = "Off"
+        case .deskLightOff, .whiteboardLightOff, .whiteboardEraseOff:
+            let colorStr = controllableObject?.switchLabels?.1 ?? ""
+            statusLabel.text = colorStr
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
                            animations: { [weak self] in
-                self?.backdrop.backgroundColor = self?.offColor
+                self?.backdrop.backgroundColor = self?.lookUpTable[colorStr]
                 }, completion: nil)
         }
     }

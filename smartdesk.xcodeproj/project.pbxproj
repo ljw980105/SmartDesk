@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */; };
+		0437BB712192857100AD4D7B /* WhiteboardMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB702192857100AD4D7B /* WhiteboardMovement.swift */; };
+		0437BB7321928CB000AD4D7B /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB7221928CB000AD4D7B /* Lock.swift */; };
+		0437BB7521928D7200AD4D7B /* Outlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB7421928D7200AD4D7B /* Outlet.swift */; };
+		0437BB772192BD5100AD4D7B /* BiometricsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB762192BD5100AD4D7B /* BiometricsController.swift */; };
 		043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */; };
 		043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */; };
 		043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */; };
@@ -30,6 +34,7 @@
 		0465A4562180C1C000CA825A /* LightControlSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4542180C1C000CA825A /* LightControlSliderTableViewCell.swift */; };
 		0465A4572180C1C000CA825A /* LightControlSliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */; };
 		0465A4592181056B00CA825A /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4582181056B00CA825A /* Haptic.swift */; };
+		046751272190B3FF00F44330 /* WhiteboardLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046751262190B3FF00F44330 /* WhiteboardLight.swift */; };
 		048E3EB921770E6600217DD8 /* TestAsciiStringConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */; };
 		048E3EBA21770E9A00217DD8 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
 		048E3EBB21770F2100217DD8 /* BLEManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66942216DC64600B8795A /* BLEManagerDelegate.swift */; };
@@ -68,6 +73,10 @@
 
 /* Begin PBXFileReference section */
 		03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.debug.xcconfig"; sourceTree = "<group>"; };
+		0437BB702192857100AD4D7B /* WhiteboardMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardMovement.swift; sourceTree = "<group>"; };
+		0437BB7221928CB000AD4D7B /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		0437BB7421928D7200AD4D7B /* Outlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outlet.swift; sourceTree = "<group>"; };
+		0437BB762192BD5100AD4D7B /* BiometricsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsController.swift; sourceTree = "<group>"; };
 		043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSlidableTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +99,7 @@
 		0465A4542180C1C000CA825A /* LightControlSliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlSliderTableViewCell.swift; sourceTree = "<group>"; };
 		0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlSliderTableViewCell.xib; sourceTree = "<group>"; };
 		0465A4582181056B00CA825A /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		046751262190B3FF00F44330 /* WhiteboardLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardLight.swift; sourceTree = "<group>"; };
 		048E3EB821770E6600217DD8 /* TestAsciiStringConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAsciiStringConversion.swift; sourceTree = "<group>"; };
 		048E3EC121782F2800217DD8 /* OutgoingCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingCommands.swift; sourceTree = "<group>"; };
 		048E3EC3217840D500217DD8 /* IncomingCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCommand.swift; sourceTree = "<group>"; };
@@ -154,9 +164,9 @@
 		043E1C86217143B700B1ED56 /* BLEControl */ = {
 			isa = PBXGroup;
 			children = (
+				046751252190B3B600F44330 /* BLEControllables */,
 				043E1C89217146A400B1ED56 /* BLEControlEntity.swift */,
 				043E1C87217143DE00B1ED56 /* BLEControllable.swift */,
-				043E1C8B217156BD00B1ED56 /* DeskLight.swift */,
 				048E3EC121782F2800217DD8 /* OutgoingCommands.swift */,
 				048E3EC3217840D500217DD8 /* IncomingCommand.swift */,
 				048E3EC52178532300217DD8 /* CommandToIndex.swift */,
@@ -182,6 +192,18 @@
 				0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */,
 			);
 			path = LightControl;
+			sourceTree = "<group>";
+		};
+		046751252190B3B600F44330 /* BLEControllables */ = {
+			isa = PBXGroup;
+			children = (
+				043E1C8B217156BD00B1ED56 /* DeskLight.swift */,
+				046751262190B3FF00F44330 /* WhiteboardLight.swift */,
+				0437BB702192857100AD4D7B /* WhiteboardMovement.swift */,
+				0437BB7221928CB000AD4D7B /* Lock.swift */,
+				0437BB7421928D7200AD4D7B /* Outlet.swift */,
+			);
+			path = BLEControllables;
 			sourceTree = "<group>";
 		};
 		04B66913216DBB4A00B8795A = {
@@ -245,6 +267,7 @@
 		04B66946216EA26A00B8795A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0437BB762192BD5100AD4D7B /* BiometricsController.swift */,
 				043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */,
 				043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */,
 				04B66947216EA27900B8795A /* SwiftMessagesWrapper.swift */,
@@ -479,17 +502,22 @@
 				043E1C88217143DE00B1ED56 /* BLEControllable.swift in Sources */,
 				0465A44F2180257A00CA825A /* LightController.swift in Sources */,
 				048E3EC4217840D500217DD8 /* IncomingCommand.swift in Sources */,
+				0437BB772192BD5100AD4D7B /* BiometricsController.swift in Sources */,
+				0437BB7521928D7200AD4D7B /* Outlet.swift in Sources */,
 				048E3EC62178532300217DD8 /* CommandToIndex.swift in Sources */,
+				046751272190B3FF00F44330 /* WhiteboardLight.swift in Sources */,
 				0465A4462180162100CA825A /* LightControlTableViewController.swift in Sources */,
 				0465A44C218024D700CA825A /* LightControlColorTableViewCell.swift in Sources */,
 				04B66922216DBB4A00B8795A /* DashboardViewController.swift in Sources */,
 				0450739C2182DB4100470900 /* ColorPickerViewController.swift in Sources */,
 				04B66945216E992A00B8795A /* ConnectionViewController.swift in Sources */,
 				04EB8785218E2D5E00CD2344 /* Common.swift in Sources */,
+				0437BB7321928CB000AD4D7B /* Lock.swift in Sources */,
 				043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */,
 				0465A4592181056B00CA825A /* Haptic.swift in Sources */,
 				0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */,
 				045073992182DA3400470900 /* ColorPickerView.swift in Sources */,
+				0437BB712192857100AD4D7B /* WhiteboardMovement.swift in Sources */,
 				0465A4562180C1C000CA825A /* LightControlSliderTableViewCell.swift in Sources */,
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
 				043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */,
