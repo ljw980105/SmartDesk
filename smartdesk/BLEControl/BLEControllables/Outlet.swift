@@ -10,8 +10,9 @@ import Foundation
 
 class Outlet: NSObject, BLEControllable {
     var sectionHeader: String = "Outlets"
-    var controls: [BLEControlEntity] = [BLEControlEntity(name: "Front",
-                                                         outgoingCommand: OutgoingCommands.outletToggle,
-                                                         incomingCommands: [],
-                                                         switchLabels: ("Front", "Side"))]
+    var controls: [BLEControlEntity] =
+        [BLEControlEntity(name: "Front",
+                          outgoingCommand: OutgoingCommands.outletToggle,
+                          incomingCommands: [.outletsFacingSide, .outletsFacingFront],
+                          switchLabels: ("Front", "Side"))]
 }

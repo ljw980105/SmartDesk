@@ -20,4 +20,12 @@ enum IncomingCommand: String {
     // whiteboard erase
     case whiteboardEraseOn = "W-EO"
     case whiteboardEraseOff = "W-EF"
+    
+    // lockable compartment
+    case lockableCmptLocked = "L-LO"
+    case lockableCmptUnlocked = "L-UL"
+    
+    // outlets
+    case outletsFacingFront = "O-FR"
+    case outletsFacingSide = "O-SI"
 }

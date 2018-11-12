@@ -10,9 +10,10 @@ import Foundation
 
 class Lock: NSObject, BLEControllable {
     var sectionHeader: String = "Lockable Compartment"
-    var controls: [BLEControlEntity] = [BLEControlEntity(name: "Locked",
-                                                         outgoingCommand: OutgoingCommands.lockableToggle,
-                                                         incomingCommands: [],
-                                                         switchLabels: ("Unlocked", "Locked"),
-                                                         isBiometric: true)]
+    var controls: [BLEControlEntity] =
+        [BLEControlEntity(name: "Locked",
+                          outgoingCommand: OutgoingCommands.lockableToggle,
+                          incomingCommands: [.lockableCmptUnlocked, .lockableCmptLocked],
+                          switchLabels: ("Unlocked", "Locked"),
+                          isBiometric: true)]
 }

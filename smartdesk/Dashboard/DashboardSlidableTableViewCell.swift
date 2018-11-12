@@ -84,7 +84,7 @@ extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollection
             let cmd = controllable.outgoingCommand,
             case .biometric = controllable.controlType {
             // biometric !!!!!!!
-            BiometricsController.loginWithBiometrics(onSuccess: {
+            BiometricsController.authenticateWithBiometrics(onSuccess: {
                 BLEManager.current.send(string: cmd)
             })
             

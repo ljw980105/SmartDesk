@@ -46,7 +46,16 @@ class LightControlTableViewController: UITableViewController {
         colorPicker.modalTransitionStyle = .crossDissolve
         colorPicker.modalPresentationStyle = .popover
         colorPicker.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        colorPicker.preferredContentSize = CGSize(width: 320, height: 250)
+        
+        // customize different sizes for color picker depending on the devices they are using
+        let size: Int
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            size = Int(view.bounds.width * 0.9)
+        } else { // on an ipad
+            size = Int(view.bounds.width * 0.5)
+        }
+        
+        colorPicker.preferredContentSize = CGSize(width: size, height: size)
         colorPicker.didSelectColor = { [weak self] color in
             let cmd = self?.controller.data.last?.first ?? ""
             BLEManager.current.send(colorCommand: cmd, color: color)

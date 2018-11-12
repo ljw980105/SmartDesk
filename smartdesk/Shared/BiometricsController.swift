@@ -29,8 +29,8 @@ enum BiometricsController {
         return self.context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
     }
     
-    static func loginWithBiometrics(onSuccess successHandler: @escaping () -> Void,
-                                    onError errorHandler: @escaping (Error?) -> Void = { _ in }) {
+    static func authenticateWithBiometrics(onSuccess successHandler: @escaping () -> Void,
+                                           onError errorHandler: @escaping (Error?) -> Void = { _ in }) {
         self.context.evaluatePolicy(.deviceOwnerAuthentication,
                                     localizedReason: "Unlock") { success, error in
             DispatchQueue.main.async {

@@ -16,7 +16,7 @@ class WhiteboardLight: NSObject, BLEControllable {
         super.init()
         controls.append(BLEControlEntity(name: "On",
                                          outgoingCommand: OutgoingCommands.whiteboardLightToggle,
-                                         incomingCommands: [.whiteboardLightOn, .whiteboardLightOff],
+                                         incomingCommands: [.whiteboardLightOff, .whiteboardLightOn],
                                          switchLabels: ("On", "Off")))
         
         var lightControls: [LightControlOptions: String] = [:]

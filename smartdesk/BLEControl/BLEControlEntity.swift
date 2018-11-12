@@ -29,7 +29,7 @@ class BLEControlEntity: NSObject {
     let lightControlOptions: [LightControlOptions: String]?
     
     /** first str is the on label, and the second is the off label.
-     The isSwitch property will be true if this param is set. */
+     The `isSwitch` property will be true if this param is set. */
     let switchLabels: (String, String)?
     
     init(name: String,

@@ -10,10 +10,11 @@ import Foundation
 
 class WhiteboardMovement: NSObject, BLEControllable {
     var sectionHeader: String = "Whiteboard"
-    var controls: [BLEControlEntity] = [BLEControlEntity(name: "Up", outgoingCommand: OutgoingCommands.whiteboardUp),
-                                        BLEControlEntity(name: "Down", outgoingCommand: OutgoingCommands.whiteboardDown),
-                                        BLEControlEntity(name: "Erase", outgoingCommand: OutgoingCommands.whiteboardEraseToggle,
-                                                         incomingCommands: [.whiteboardEraseOn, .whiteboardEraseOff],
-                                                         switchLabels: ("Erase", "No-erase"))]
+    var controls: [BLEControlEntity] =
+        [BLEControlEntity(name: "Up", outgoingCommand: OutgoingCommands.whiteboardUp),
+         BLEControlEntity(name: "Down", outgoingCommand: OutgoingCommands.whiteboardDown),
+         BLEControlEntity(name: "Erase", outgoingCommand: OutgoingCommands.whiteboardEraseToggle,
+                          incomingCommands: [.whiteboardEraseOff, .whiteboardEraseOn],
+                          switchLabels: ("Erase", "No-erase"))]
     
 }

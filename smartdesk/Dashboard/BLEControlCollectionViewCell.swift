@@ -22,19 +22,13 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
         table["On"] = onColor
         table["Off"] = offColor
         table["Erase"] = offColor
-        table["NoErase"] = onColor
+        table["No-erase"] = onColor
         table["Locked"] = UIColor.red
         table["Unlocked"] = onColor
         table["Front"] = UIColor.purple
         table["Side"] = UIColor.brown
         return table
     }()
-    
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        backdrop.backgroundColor = defaultColor
-//        statusLabel.textColor = UIColor.themeColor
-//    }
     
     var controllableObject: BLEControlEntity? {
         didSet {
@@ -58,22 +52,20 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
     }
     
     func adjustUI(with command: IncomingCommand) {
+        var colorStr = ""
         switch command {
-        case .deskLightOn, .whiteboardLightOn, .whiteboardEraseOn:
-            let colorStr = controllableObject?.switchLabels?.0 ?? ""
+        case .deskLightOn, .whiteboardLightOn, .whiteboardEraseOn,
+             .outletsFacingFront, .lockableCmptLocked:
+            colorStr = controllableObject?.switchLabels?.0 ?? ""
+        case .deskLightOff, .whiteboardLightOff, .whiteboardEraseOff,
+             .outletsFacingSide, .lockableCmptUnlocked:
+            colorStr = controllableObject?.switchLabels?.1 ?? ""
             statusLabel.text = colorStr
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
-                           animations: { [weak self] in
-                
-                self?.backdrop.backgroundColor = self?.lookUpTable[colorStr]
-                }, completion: nil)
-        case .deskLightOff, .whiteboardLightOff, .whiteboardEraseOff:
-            let colorStr = controllableObject?.switchLabels?.1 ?? ""
-            statusLabel.text = colorStr
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
-                           animations: { [weak self] in
-                self?.backdrop.backgroundColor = self?.lookUpTable[colorStr]
-                }, completion: nil)
         }
+        statusLabel.text = colorStr
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
+                       animations: { [weak self] in
+            self?.backdrop.backgroundColor = self?.lookUpTable[colorStr]
+        }, completion: nil)
     }
 }
