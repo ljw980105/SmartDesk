@@ -14,4 +14,5 @@ enum LightControlOptions: Int {
     case higherColorTemp = 2
     case lowerColorTemp = 3
     case colorKeys = 4
+    case persistentName = 5
 }

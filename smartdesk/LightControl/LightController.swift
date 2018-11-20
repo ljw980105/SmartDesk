@@ -11,6 +11,7 @@ import UIKit
 
 class LightController {
     let data: [[String]]
+    let databaseManager: LightControlPersistenceManager
     let sectionHeaders = ["Brightness", "Warmth", "Colors"]
     
     let colors = [UIColor.white, UIColor.red, UIColor.green,
@@ -28,5 +29,9 @@ class LightController {
         final.append(tempControls)
         final.append([data[LightControlOptions.colorKeys] ?? ""])
         self.data = final
+        guard let nameInDB = data[LightControlOptions.persistentName] else {
+            fatalError("Persistent name does not exist in the initializer data structure")
+        }
+        databaseManager = LightControlPersistenceManager(identifier: nameInDB)
     }
 }

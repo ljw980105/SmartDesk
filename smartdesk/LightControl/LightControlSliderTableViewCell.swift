@@ -12,29 +12,32 @@ class LightControlSliderTableViewCell: UITableViewCell {
     @IBOutlet weak var lightSlider: UISlider!
     static let identifier = "lightControlSlider"
     
-    enum LightSliderFunction: Int {
-        case warmth = 1
-        case brightness = 0
-    }
-    
     private var incrementCommand: String = ""
     private var decrementCommand: String = ""
     private var function: LightSliderFunction = .brightness
    
     private var previousValue: Float = 50
     
-    func setUp(upCommand: String, downCommand: String, function: LightSliderFunction) {
+    func setUp(upCommand: String,
+               downCommand: String,
+               function: LightSliderFunction,
+               databaseManager: LightControlPersistenceManager) {
         incrementCommand = upCommand
         decrementCommand = downCommand
         self.function = function
+        var persistenceValue: Float = 0.0
         switch self.function {
         case .warmth:
             lightSlider.minimumTrackTintColor = UIColor.cyan
             lightSlider.maximumTrackTintColor = UIColor.orange
+            persistenceValue = databaseManager.colorTemperature
         case .brightness:
             lightSlider.minimumTrackTintColor = UIColor.black
             lightSlider.maximumTrackTintColor = UIColor.lightGray
+            persistenceValue = databaseManager.brightness
         }
+        previousValue = persistenceValue
+        lightSlider.value = persistenceValue
     }
 
     @IBAction func lightSliderChanged(_ sender: UISlider) {

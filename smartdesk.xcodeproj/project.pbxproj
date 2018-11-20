@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */; };
+		0433C2CB21A31F97007BC285 /* LightControlPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433C2CA21A31F97007BC285 /* LightControlPersistenceManager.swift */; };
 		0437BB712192857100AD4D7B /* WhiteboardMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB702192857100AD4D7B /* WhiteboardMovement.swift */; };
 		0437BB7321928CB000AD4D7B /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB7221928CB000AD4D7B /* Lock.swift */; };
 		0437BB7521928D7200AD4D7B /* Outlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB7421928D7200AD4D7B /* Outlet.swift */; };
@@ -58,6 +59,9 @@
 		04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6694B2170100D00B8795A /* TimeoutableOperation.swift */; };
 		04EB8785218E2D5E00CD2344 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8784218E2D5E00CD2344 /* Common.swift */; };
 		04EB878B218E44B700CD2344 /* TransitionAnimation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EB878A218E44B700CD2344 /* TransitionAnimation2.json */; };
+		04F48CD621A3A36300EB9A5B /* LightSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F48CD521A3A36300EB9A5B /* LightSettings.swift */; };
+		04F48CD821A3AE2900EB9A5B /* LightSliderFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F48CD721A3AE2900EB9A5B /* LightSliderFunction.swift */; };
+		04F48CDB21A3C88600EB9A5B /* LightSettings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04F48CD921A3C88600EB9A5B /* LightSettings.xcdatamodeld */; };
 		382C4C5740DB2458EA19902D /* Pods_smartdeskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.debug.xcconfig"; sourceTree = "<group>"; };
+		0433C2CA21A31F97007BC285 /* LightControlPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlPersistenceManager.swift; sourceTree = "<group>"; };
 		0437BB702192857100AD4D7B /* WhiteboardMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardMovement.swift; sourceTree = "<group>"; };
 		0437BB7221928CB000AD4D7B /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		0437BB7421928D7200AD4D7B /* Outlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outlet.swift; sourceTree = "<group>"; };
@@ -122,6 +127,9 @@
 		04B6694B2170100D00B8795A /* TimeoutableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutableOperation.swift; sourceTree = "<group>"; };
 		04EB8784218E2D5E00CD2344 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		04EB878A218E44B700CD2344 /* TransitionAnimation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TransitionAnimation2.json; sourceTree = "<group>"; };
+		04F48CD521A3A36300EB9A5B /* LightSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSettings.swift; sourceTree = "<group>"; };
+		04F48CD721A3AE2900EB9A5B /* LightSliderFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSliderFunction.swift; sourceTree = "<group>"; };
+		04F48CDA21A3C88600EB9A5B /* LightSettings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightSettings.xcdatamodel; sourceTree = "<group>"; };
 		1F7ECF436E5DB71B8BD43EFA /* Pods-smartdeskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdeskTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C0BB77FED39123153A32B12 /* Pods-smartdeskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdeskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdeskTests/Pods-smartdeskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		603CE35E70A3A2AE6A823E4E /* Pods_smartdeskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartdeskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +185,7 @@
 		0465A4432180156500CA825A /* LightControl */ = {
 			isa = PBXGroup;
 			children = (
+				04F48CD021A3A03300EB9A5B /* Persistence */,
 				045073982182DA3400470900 /* ColorPickerView.swift */,
 				0450739A2182DB4100470900 /* ColorPickerViewController.swift */,
 				0450739B2182DB4100470900 /* ColorPickerViewController.xib */,
@@ -190,6 +199,7 @@
 				0465A45121804BF100CA825A /* LightControlColorCollectionViewCell.xib */,
 				0465A4542180C1C000CA825A /* LightControlSliderTableViewCell.swift */,
 				0465A4552180C1C000CA825A /* LightControlSliderTableViewCell.xib */,
+				04F48CD721A3AE2900EB9A5B /* LightSliderFunction.swift */,
 			);
 			path = LightControl;
 			sourceTree = "<group>";
@@ -284,6 +294,16 @@
 				04EB878A218E44B700CD2344 /* TransitionAnimation2.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		04F48CD021A3A03300EB9A5B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				04F48CD921A3C88600EB9A5B /* LightSettings.xcdatamodeld */,
+				0433C2CA21A31F97007BC285 /* LightControlPersistenceManager.swift */,
+				04F48CD521A3A36300EB9A5B /* LightSettings.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		F12199BE41D7D19E9900C053 /* Frameworks */ = {
@@ -514,8 +534,10 @@
 				04EB8785218E2D5E00CD2344 /* Common.swift in Sources */,
 				0437BB7321928CB000AD4D7B /* Lock.swift in Sources */,
 				043E1C7E2171383000B1ED56 /* DashboardHeaderTableViewCell.swift in Sources */,
+				04F48CD621A3A36300EB9A5B /* LightSettings.swift in Sources */,
 				0465A4592181056B00CA825A /* Haptic.swift in Sources */,
 				0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */,
+				04F48CDB21A3C88600EB9A5B /* LightSettings.xcdatamodeld in Sources */,
 				045073992182DA3400470900 /* ColorPickerView.swift in Sources */,
 				0437BB712192857100AD4D7B /* WhiteboardMovement.swift in Sources */,
 				0465A4562180C1C000CA825A /* LightControlSliderTableViewCell.swift in Sources */,
@@ -525,8 +547,10 @@
 				048E3EC221782F2800217DD8 /* OutgoingCommands.swift in Sources */,
 				043E1C85217141F700B1ED56 /* DashboardController.swift in Sources */,
 				04B66920216DBB4A00B8795A /* AppDelegate.swift in Sources */,
+				04F48CD821A3AE2900EB9A5B /* LightSliderFunction.swift in Sources */,
 				0465A45221804BF100CA825A /* LightControlColorCollectionViewCell.swift in Sources */,
 				043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */,
+				0433C2CB21A31F97007BC285 /* LightControlPersistenceManager.swift in Sources */,
 				043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */,
 				04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */,
 				043E1C8A217146A400B1ED56 /* BLEControlEntity.swift in Sources */,
@@ -808,6 +832,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04F48CD921A3C88600EB9A5B /* LightSettings.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04F48CDA21A3C88600EB9A5B /* LightSettings.xcdatamodel */,
+			);
+			currentVersion = 04F48CDA21A3C88600EB9A5B /* LightSettings.xcdatamodel */;
+			path = LightSettings.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04B66914216DBB4A00B8795A /* Project object */;
 }

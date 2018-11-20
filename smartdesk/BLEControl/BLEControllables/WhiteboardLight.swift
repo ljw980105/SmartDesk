@@ -25,6 +25,7 @@ class WhiteboardLight: NSObject, BLEControllable {
         lightControls[.higherBrightness] = OutgoingCommands.whiteboardLightUpBrightness
         lightControls[.lowerBrightness] = OutgoingCommands.whiteboardLightReduceBrightness
         lightControls[.colorKeys] = OutgoingCommands.whiteboardLightColor
+        lightControls[.persistentName] = "WhiteboardLight"
         
         controls.append(BLEControlEntity(name: "Customize", isCustomization: true,
                                          lightControlOptions: lightControls))

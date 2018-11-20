@@ -20,6 +20,7 @@ class LightControlTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Controller Lifecycle
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,16 @@ class LightControlTableViewController: UITableViewController {
         
         addColorPopover()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let brightness = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? LightControlSliderTableViewCell)?.lightSlider.value,
+             let warmth = (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? LightControlSliderTableViewCell)?.lightSlider.value {
+            controller.databaseManager.set(brightness: brightness, colorTemeprature: warmth)
+        }
+    }
+    
+    // MARK: - Private Helper
     
     private func addColorPopover() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "More Colors", style: .plain,
@@ -96,7 +107,8 @@ extension LightControlTableViewController {
         if let cell = cell as? LightControlSliderTableViewCell {
             cell.setUp(upCommand: controller.data[indexPath.section].first ?? "",
                        downCommand: controller.data[indexPath.section].last ?? "",
-                       function: LightControlSliderTableViewCell.LightSliderFunction(rawValue: indexPath.section)!)
+                       function: LightSliderFunction(rawValue: indexPath.section)!,
+                       databaseManager: controller.databaseManager)
         }
         return cell
     }
