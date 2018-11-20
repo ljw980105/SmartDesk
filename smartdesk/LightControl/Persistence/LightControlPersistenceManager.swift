@@ -11,9 +11,9 @@ import CoreData
 
 /**
  * Persists the light control data between initiation / dismissals of light control view controller.
- * - upon app launch: set everything to 50 in `UserDefaults`
- * - upon app dismissal: reset everything to 50 again in `UserDefaults`
- * - when light vc appears -> load light settings from `UserDefaults`
+ * - upon app launch: set everything to 50 with `CoreData`
+ * - when light vc appears -> load light settings from `CoreData`
+ * - when light vc disappears -> save light settings into `CoreData`
  */
 class LightControlPersistenceManager {
     private var identifier: String = ""

@@ -37,23 +37,20 @@ class BLEManager: NSObject {
     
     // MARK: - Instance methods
     func connect() {
-//        if bluetoothManager.state == .poweredOn {
-//            bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
-//            timeOutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
-//                                                repeats: false) { [weak self] _ in
-//                self?.delegate?.didReceiveError(error: .timeOut)
-//                self?.bluetoothManager.stopScan()
-//            }
-//        } else {
-//            DispatchQueue.main.async { [weak self] in
-//                if let strongSelf = self {
-//                    strongSelf.delegate?.didReceiveError(error:
-//                        BLEError.error(fromBLEState: strongSelf.bluetoothManager.state))
-//                }
-//            }
-//        }
-        DispatchQueue.main.async { [weak self] in
-            self?.delegate?.readyToSendData()
+        if bluetoothManager.state == .poweredOn {
+            bluetoothManager.scanForPeripherals(withServices: [bleModuleUUID], options: nil)
+            timeOutTimer = Timer.scheduledTimer(withTimeInterval: timeOutInterval,
+                                                repeats: false) { [weak self] _ in
+                self?.delegate?.didReceiveError(error: .timeOut)
+                self?.bluetoothManager.stopScan()
+            }
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.delegate?.didReceiveError(error:
+                        BLEError.error(fromBLEState: strongSelf.bluetoothManager.state))
+                }
+            }
         }
     }
     
