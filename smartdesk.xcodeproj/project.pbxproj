@@ -26,6 +26,8 @@
 		0450739D2182DB4100470900 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0450739B2182DB4100470900 /* ColorPickerViewController.xib */; };
 		045A56AC21A4A0C100C75E3C /* OutgoingCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC121782F2800217DD8 /* OutgoingCommands.swift */; };
 		045A56AE21A5CF0700C75E3C /* LottieActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A56AD21A5CF0700C75E3C /* LottieActivityIndicator.swift */; };
+		045A56B021A64B2100C75E3C /* LogoAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 045A56AF21A64B2100C75E3C /* LogoAnimation.json */; };
+		045A56B221A677BA00C75E3C /* LaunchAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 045A56B121A677BA00C75E3C /* LaunchAnimation.json */; };
 		0465A4462180162100CA825A /* LightControlTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4442180162100CA825A /* LightControlTableViewController.swift */; };
 		0465A4472180162100CA825A /* LightControlTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A4452180162100CA825A /* LightControlTableViewController.xib */; };
 		0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4482180166D00CA825A /* LightControlOptions.swift */; };
@@ -96,6 +98,8 @@
 		0450739A2182DB4100470900 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		0450739B2182DB4100470900 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		045A56AD21A5CF0700C75E3C /* LottieActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieActivityIndicator.swift; sourceTree = "<group>"; };
+		045A56AF21A64B2100C75E3C /* LogoAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LogoAnimation.json; sourceTree = "<group>"; };
+		045A56B121A677BA00C75E3C /* LaunchAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchAnimation.json; sourceTree = "<group>"; };
 		0465A4442180162100CA825A /* LightControlTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlTableViewController.swift; sourceTree = "<group>"; };
 		0465A4452180162100CA825A /* LightControlTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlTableViewController.xib; sourceTree = "<group>"; };
 		0465A4482180166D00CA825A /* LightControlOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlOptions.swift; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 		04EB877A218D5F0C00CD2344 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				045A56B121A677BA00C75E3C /* LaunchAnimation.json */,
+				045A56AF21A64B2100C75E3C /* LogoAnimation.json */,
 				04EB878A218E44B700CD2344 /* TransitionAnimation2.json */,
 				045A56AD21A5CF0700C75E3C /* LottieActivityIndicator.swift */,
 			);
@@ -420,8 +426,10 @@
 				04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */,
 				04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */,
 				04EB878B218E44B700CD2344 /* TransitionAnimation2.json in Resources */,
+				045A56B021A64B2100C75E3C /* LogoAnimation.json in Resources */,
 				0465A4572180C1C000CA825A /* LightControlSliderTableViewCell.xib in Resources */,
 				0465A44D218024D700CA825A /* LightControlColorTableViewCell.xib in Resources */,
+				045A56B221A677BA00C75E3C /* LaunchAnimation.json in Resources */,
 				043E1C7F2171383000B1ED56 /* DashboardHeaderTableViewCell.xib in Resources */,
 				0450739D2182DB4100470900 /* ColorPickerViewController.xib in Resources */,
 				04B66925216DBB4A00B8795A /* Main.storyboard in Resources */,

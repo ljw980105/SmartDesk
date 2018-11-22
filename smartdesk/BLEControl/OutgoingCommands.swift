@@ -35,6 +35,7 @@ enum OutgoingCommands {
     // whiteboard movement
     static let whiteboardUp = "M"
     static let whiteboardDown = "N"
+    static let whiteboardStop = "R"
     static let whiteboardEraseToggle = "O"
     
     // lockable compartment

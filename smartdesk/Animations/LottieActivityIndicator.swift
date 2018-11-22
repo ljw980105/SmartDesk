@@ -11,6 +11,7 @@ import Lottie
 
 class LottieActivityIndicator: UIView {
     private var animationView: LOTAnimationView?
+    private var button: UIButton?
     private var startCommand: String?
     private var endCommand: String?
     private var completion: (() -> Void)?
@@ -30,7 +31,6 @@ class LottieActivityIndicator: UIView {
     }
     
     override func willMove(toSuperview newSuperview: UIView?) {
-        
         guard let superView = newSuperview else { return }
         
         self.center = superView.center
@@ -45,10 +45,11 @@ class LottieActivityIndicator: UIView {
         self.alpha = 0
         addShadow()
         let width = Int(self.frame.width * 0.888)
-        let height = Int(self.frame.height * 0.888)
-        animationView = LOTAnimationView(name: "TransitionAnimation2")
+        let height = Int(self.frame.height * 0.666)
+        animationView = LOTAnimationView(name: "LogoAnimation")
         animationView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        animationView?.center = superView.center
+        animationView?.center = CGPoint(x: superView.center.x,
+                                        y: superView.center.y - frame.height * 0.111)
         animationView?.loopAnimation = true
         animationView?.layer.cornerRadius = 20.0
         animationView?.clipsToBounds = true
@@ -57,11 +58,21 @@ class LottieActivityIndicator: UIView {
         }
         animationView?.play()
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        animationView?.addGestureRecognizer(gestureRecognizer)
-        animationView?.isUserInteractionEnabled = true
+        button = UIButton(type: .custom)
+        button?.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+        button?.setTitle("Stop Whiteboard", for: .normal)
+        button?.frame = CGRect(x: 0, y: 0, width: 160, height: 30)
+        button?.center = CGPoint(x: superView.center.x,
+                                 y: superView.center.y + frame.height * 0.35)
+        button?.layer.cornerRadius = 12.0
+        button?.backgroundColor = UIColor.themeColor
+        button?.alpha = 0
+        superView.addSubview(button!)
         
-        UIView.animate(withDuration: 0.3) { [weak self] in self?.alpha = 1 }
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.alpha = 1
+            self?.button?.alpha = 1
+        }
         
         if let startCmd = startCommand {
             BLEManager.current.send(string: startCmd)
@@ -72,6 +83,7 @@ class LottieActivityIndicator: UIView {
         removeSubviews()
         if let endCmd = endCommand {
             completion?()
+            Haptic.current.beep()
             BLEManager.current.send(string: endCmd)
         }
     }
@@ -80,8 +92,10 @@ class LottieActivityIndicator: UIView {
         animationView?.stop()
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.alpha = 0
+            self?.button?.alpha = 0
         }, completion: { [weak self] _ in
             self?.animationView?.removeFromSuperview()
+            self?.button?.removeFromSuperview()
             self?.removeFromSuperview()
         })
     }

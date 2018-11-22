@@ -129,13 +129,15 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
                 }
             } else if let longProcesses = controller.bleControls[indexPath.section].controls[indexPath.row].longProcessCommands {
                 cell.action = { [weak self] in
-                    self?.prepareForLottieAnimation(dimAndDisable: true)
+                    guard let strongSelf = self else { return }
+                    strongSelf.prepareForLottieAnimation(dimAndDisable: true)
+                    let animSize = strongSelf.tableView.bounds.width * 0.6
                     let animationView = LottieActivityIndicator(frame: CGRect(x: 0, y: 0,
-                                                                              width: 200, height: 200))
+                                                                              width: animSize, height: animSize))
                     animationView.configure(startCommand: longProcesses.0, endCommand: longProcesses.1) {
-                        self?.prepareForLottieAnimation(dimAndDisable: false)
+                        strongSelf.prepareForLottieAnimation(dimAndDisable: false)
                     }
-                    self?.view.addSubview(animationView)
+                    strongSelf.view.addSubview(animationView)
                 }
             }
         }
