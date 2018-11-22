@@ -10,8 +10,7 @@ import UIKit
 
 class DashboardController: NSObject {
     var bleControls: [BLEControllable] = []
-    let controls: [BLEControllable] = [WhiteboardLight(), WhiteboardMovement(), DeskLight(),
-                                       Lock()]
+    let controls: [BLEControllable] = [WhiteboardLight(), WhiteboardMovement(), DeskLight(), Lock()]
     
     override init() {
         super.init()

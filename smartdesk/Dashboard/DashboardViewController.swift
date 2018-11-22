@@ -127,6 +127,16 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
                     lightVC.title = strongSelf.controller.bleControls[indexPath.section].sectionHeader
                     strongSelf.navigationController?.pushViewController(lightVC, animated: true)
                 }
+            } else if let longProcesses = controller.bleControls[indexPath.section].controls[indexPath.row].longProcessCommands {
+                cell.action = { [weak self] in
+                    self?.prepareForLottieAnimation(dimAndDisable: true)
+                    let animationView = LottieActivityIndicator(frame: CGRect(x: 0, y: 0,
+                                                                              width: 200, height: 200))
+                    animationView.configure(startCommand: longProcesses.0, endCommand: longProcesses.1) {
+                        self?.prepareForLottieAnimation(dimAndDisable: false)
+                    }
+                    self?.view.addSubview(animationView)
+                }
             }
         }
         return cell
@@ -161,5 +171,14 @@ extension DashboardViewController: UIPopoverPresentationControllerDelegate {
         BLEManager.current.delegate = nil
         // set the delegate to self
         BLEManager.current.delegate = self
+    }
+}
+
+extension DashboardViewController {
+    fileprivate func prepareForLottieAnimation(dimAndDisable: Bool) {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.tableView.alpha = dimAndDisable ? 0.3 : 1.0
+            self?.tableView.isUserInteractionEnabled = !dimAndDisable
+        })
     }
 }

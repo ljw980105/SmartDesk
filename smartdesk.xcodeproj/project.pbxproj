@@ -24,6 +24,8 @@
 		045073992182DA3400470900 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045073982182DA3400470900 /* ColorPickerView.swift */; };
 		0450739C2182DB4100470900 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0450739A2182DB4100470900 /* ColorPickerViewController.swift */; };
 		0450739D2182DB4100470900 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0450739B2182DB4100470900 /* ColorPickerViewController.xib */; };
+		045A56AC21A4A0C100C75E3C /* OutgoingCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E3EC121782F2800217DD8 /* OutgoingCommands.swift */; };
+		045A56AE21A5CF0700C75E3C /* LottieActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A56AD21A5CF0700C75E3C /* LottieActivityIndicator.swift */; };
 		0465A4462180162100CA825A /* LightControlTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4442180162100CA825A /* LightControlTableViewController.swift */; };
 		0465A4472180162100CA825A /* LightControlTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0465A4452180162100CA825A /* LightControlTableViewController.xib */; };
 		0465A4492180166D00CA825A /* LightControlOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465A4482180166D00CA825A /* LightControlOptions.swift */; };
@@ -93,6 +95,7 @@
 		045073982182DA3400470900 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		0450739A2182DB4100470900 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		0450739B2182DB4100470900 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		045A56AD21A5CF0700C75E3C /* LottieActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieActivityIndicator.swift; sourceTree = "<group>"; };
 		0465A4442180162100CA825A /* LightControlTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlTableViewController.swift; sourceTree = "<group>"; };
 		0465A4452180162100CA825A /* LightControlTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LightControlTableViewController.xib; sourceTree = "<group>"; };
 		0465A4482180166D00CA825A /* LightControlOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlOptions.swift; sourceTree = "<group>"; };
@@ -292,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				04EB878A218E44B700CD2344 /* TransitionAnimation2.json */,
+				045A56AD21A5CF0700C75E3C /* LottieActivityIndicator.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -552,6 +556,7 @@
 				043E1C8221713BA100B1ED56 /* DashboardSlidableTableViewCell.swift in Sources */,
 				0433C2CB21A31F97007BC285 /* LightControlPersistenceManager.swift in Sources */,
 				043E1C8C217156BD00B1ED56 /* DeskLight.swift in Sources */,
+				045A56AE21A5CF0700C75E3C /* LottieActivityIndicator.swift in Sources */,
 				04B66948216EA27900B8795A /* SwiftMessagesWrapper.swift in Sources */,
 				043E1C8A217146A400B1ED56 /* BLEControlEntity.swift in Sources */,
 			);
@@ -563,6 +568,7 @@
 			files = (
 				048E3EBD21770F6100217DD8 /* SwiftMessagesWrapper.swift in Sources */,
 				048E3EC72178BF8E00217DD8 /* IncomingCommand.swift in Sources */,
+				045A56AC21A4A0C100C75E3C /* OutgoingCommands.swift in Sources */,
 				048E3EB921770E6600217DD8 /* TestAsciiStringConversion.swift in Sources */,
 				048E3EBA21770E9A00217DD8 /* BLEManager.swift in Sources */,
 				048E3EBC21770F2400217DD8 /* BLEError.swift in Sources */,

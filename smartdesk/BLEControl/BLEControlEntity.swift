@@ -18,6 +18,7 @@ class BLEControlEntity: NSObject {
         case biometric
         case toggle
         case generic
+        case longProcess
     }
     
     /** the command used to interact with the ble module.*/
@@ -32,18 +33,23 @@ class BLEControlEntity: NSObject {
      The `isSwitch` property will be true if this param is set. */
     let switchLabels: (String, String)?
     
+    /** First string is the start command, and the second is the stop command.*/
+    let longProcessCommands: (String, String)?
+    
     init(name: String,
          outgoingCommand: String? = nil ,
          incomingCommands: [IncomingCommand] = [],
          switchLabels: (String, String)? = nil,
          isCustomization: Bool = false,
          isBiometric: Bool = false,
-         lightControlOptions: [LightControlOptions: String]? = nil) {
+         lightControlOptions: [LightControlOptions: String]? = nil,
+         longProcessCommands: (String, String)? = nil) {
         self.outgoingCommand = outgoingCommand
         self.incomingCommands = incomingCommands
         self.name = name
         self.lightControlOptions = lightControlOptions
         self.switchLabels = switchLabels
+        self.longProcessCommands = longProcessCommands
         
         let isSwitch = switchLabels != nil
         if isSwitch && isBiometric {
@@ -52,6 +58,8 @@ class BLEControlEntity: NSObject {
             controlType = .toggle
         } else if isCustomization {
             controlType = .customize
+        } else if longProcessCommands != nil {
+            controlType = .longProcess
         } else {
             controlType = .generic
         }
