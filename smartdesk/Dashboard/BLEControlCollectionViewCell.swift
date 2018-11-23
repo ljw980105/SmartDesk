@@ -12,6 +12,7 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
     static let identifier = "slidableCollectionCell"
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var backdrop: UIView!
+    var lastCommand: IncomingCommand?
     
     private let offColor = UIColor(red: 252/255, green: 184/255, blue: 0/255, alpha: 1.0)
     private let onColor = UIColor(red: 23/255, green: 162/255, blue: 18/255, alpha: 1.0)
@@ -40,6 +41,7 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
                 } else if case .biometric = controlType {
                     statusLabel.textColor = UIColor.white
                     backdrop.backgroundColor = lookUpTable[controllableObject?.name ?? ""]
+                    lastCommand = .lockableCmptLocked
                 }
             }
         }
@@ -62,6 +64,7 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
             colorStr = controllableObject?.switchLabels?.1 ?? ""
             statusLabel.text = colorStr
         }
+        lastCommand = command
         statusLabel.text = colorStr
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
                        animations: { [weak self] in

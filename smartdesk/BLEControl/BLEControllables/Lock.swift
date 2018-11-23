@@ -14,6 +14,6 @@ class Lock: NSObject, BLEControllable {
         [BLEControlEntity(name: "Locked",
                           outgoingCommand: OutgoingCommands.lockableToggle,
                           incomingCommands: [.lockableCmptUnlocked, .lockableCmptLocked],
-                          switchLabels: ("Unlocked", "Locked"),
+                          switchLabels: ("Locked", "Unlocked"),
                           isBiometric: true)]
 }

@@ -50,10 +50,10 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
             UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut],
                            animations: { [weak self] in
                 self?.tableView.backgroundColor = UIColor.white
-                }, completion: { [weak self] _ in
-                    guard let strongSelf = self else { return }
-                    strongSelf.controller.bleControls = strongSelf.controller.controls
-                    strongSelf.tableView.reloadData()
+            }, completion: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.controller.bleControls = strongSelf.controller.controls
+                strongSelf.tableView.reloadData()
             })
         }
     }
@@ -131,7 +131,8 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
                 cell.action = { [weak self] in
                     guard let strongSelf = self else { return }
                     strongSelf.prepareForLottieAnimation(dimAndDisable: true)
-                    let animSize = strongSelf.tableView.bounds.width * 0.6
+                    let screenWidth = strongSelf.tableView.bounds.width * 0.6
+                    let animSize = screenWidth < 200 ? 200 : screenWidth
                     let animationView = LottieActivityIndicator(frame: CGRect(x: 0, y: 0,
                                                                               width: animSize, height: animSize))
                     animationView.configure(startCommand: longProcesses.0, endCommand: longProcesses.1) {

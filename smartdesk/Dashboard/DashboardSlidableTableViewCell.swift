@@ -83,8 +83,12 @@ extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollection
             action() 
         } else if let controllable = controllableObject?.controls[indexPath.row],
             let cmd = controllable.outgoingCommand,
-            case .biometric = controllable.controlType {
+            case .biometric = controllable.controlType,
+            let cell = collectionView.cellForItem(at: indexPath) as? BLEControlCollectionViewCell,
+            let lastCommand = cell.lastCommand,
+            case IncomingCommand.lockableCmptLocked = lastCommand {
             // biometric !!!!!!!
+            // only require biometric when it's locked.
             BiometricsController.authenticateWithBiometrics(onSuccess: {
                 BLEManager.current.send(string: cmd)
             })
