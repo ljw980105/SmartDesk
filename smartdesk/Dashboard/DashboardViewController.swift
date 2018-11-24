@@ -117,30 +117,16 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardSlidableTableViewCell.identifier,
                                                  for: indexPath)
         if let cell = cell as? DashboardSlidableTableViewCell {
-            // row is always 0, but section indexes corresponds to the data structure
+            // row is always 0, but section indexes correspond to the data structure
             cell.controllableObject = controller.bleControls[indexPath.section]
             cell.sectionIndex = indexPath.section
-            if let lightControl = controller.lightControl(in: indexPath.section) {
-                cell.action = { [weak self] in
-                    guard let strongSelf = self else { return }
-                    let lightVC = LightControlTableViewController(data: lightControl)
-                    lightVC.title = strongSelf.controller.bleControls[indexPath.section].sectionHeader
-                    strongSelf.navigationController?.pushViewController(lightVC, animated: true)
-                }
-            } else if let longProcesses = controller.bleControls[indexPath.section].controls[indexPath.row].longProcessCommands {
-                cell.action = { [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.prepareForLottieAnimation(dimAndDisable: true)
-                    let screenWidth = strongSelf.tableView.bounds.width * 0.6
-                    let animSize = screenWidth < 200 ? 200 : screenWidth
-                    let animationView = LottieActivityIndicator(frame: CGRect(x: 0, y: 0,
-                                                                              width: animSize, height: animSize))
-                    animationView.configure(startCommand: longProcesses.0, endCommand: longProcesses.1) {
-                        strongSelf.prepareForLottieAnimation(dimAndDisable: false)
-                    }
-                    strongSelf.view.addSubview(animationView)
-                }
-            }
+            let proceduresController = DashboardProceduresController()
+            proceduresController.parentNavigationController = navigationController
+            proceduresController.parentView = view
+            proceduresController.parentTableView = tableView
+            proceduresController.procedures = controller.procedures(in: indexPath.section)
+            proceduresController.sectionHeader = controller.bleControls[indexPath.section].sectionHeader
+            cell.proceduresController = proceduresController
         }
         return cell
     }
@@ -174,14 +160,5 @@ extension DashboardViewController: UIPopoverPresentationControllerDelegate {
         BLEManager.current.delegate = nil
         // set the delegate to self
         BLEManager.current.delegate = self
-    }
-}
-
-extension DashboardViewController {
-    fileprivate func prepareForLottieAnimation(dimAndDisable: Bool) {
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.tableView.alpha = dimAndDisable ? 0.3 : 1.0
-            self?.tableView.isUserInteractionEnabled = !dimAndDisable
-        })
     }
 }

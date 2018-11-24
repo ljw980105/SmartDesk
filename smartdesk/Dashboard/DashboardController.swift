@@ -16,8 +16,32 @@ class DashboardController: NSObject {
         super.init()
     }
     
+    /**
+     * Not in use currently. It's replaced by the metohd below it - `procedures(in:)`
+     */
     func lightControl(in section: Int) -> [LightControlOptions : String]? {
         return bleControls[section].controls.filter { $0.lightControlOptions != nil }.first?.lightControlOptions
+    }
+    
+    /**
+     * Generates a dictionary with the index as key and longProcessCommands
+     * or LightControlsOptions as the dictionary's value.
+     * - the value of the dictionary can be
+     *      - `(String, String)` for `longProcessCommands`
+     *      - `[LightControlOptions: String]` for `lightControl`
+     */
+    func procedures(in section: Int) -> [Int: Any] {
+        var location = 0
+        var temp: [Int: Any] = [:]
+        for entity in bleControls[section].controls {
+             if let longProcesses = entity.longProcessCommands {
+                temp[location] = longProcesses
+             } else if let lightControls = entity.lightControlOptions {
+                temp[location] = lightControls
+            }
+            location += 1
+        }
+        return temp
     }
     
     /** perform updates on the data structure to make sure they are re-dequeued correctly */
