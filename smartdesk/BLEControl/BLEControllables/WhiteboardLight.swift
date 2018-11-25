@@ -25,7 +25,9 @@ class WhiteboardLight: NSObject, BLEControllable {
         lightControls[.higherBrightness] = OutgoingCommands.whiteboardLightUpBrightness
         lightControls[.lowerBrightness] = OutgoingCommands.whiteboardLightReduceBrightness
         lightControls[.colorKeys] = OutgoingCommands.whiteboardLightColor
-        lightControls[.persistentName] = "WhiteboardLight"
+        // used to be WhiteboardLight: only use one db object b/c Arduino only sets brightness and color
+        // temperature globally
+        lightControls[.persistentName] = "DeskLight"
         
         controls.append(BLEControlEntity(name: "Customize", isCustomization: true,
                                          lightControlOptions: lightControls))

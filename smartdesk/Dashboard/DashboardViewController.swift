@@ -120,13 +120,8 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate  {
             // row is always 0, but section indexes correspond to the data structure
             cell.controllableObject = controller.bleControls[indexPath.section]
             cell.sectionIndex = indexPath.section
-            let proceduresController = DashboardProceduresController()
-            proceduresController.parentNavigationController = navigationController
-            proceduresController.parentView = view
-            proceduresController.parentTableView = tableView
-            proceduresController.procedures = controller.procedures(in: indexPath.section)
-            proceduresController.sectionHeader = controller.bleControls[indexPath.section].sectionHeader
-            cell.proceduresController = proceduresController
+            cell.actions = actions(from: controller.procedures(in: indexPath.section),
+                                   header: controller.bleControls[indexPath.section].sectionHeader)
         }
         return cell
     }

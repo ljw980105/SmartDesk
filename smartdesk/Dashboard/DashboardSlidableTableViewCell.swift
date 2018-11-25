@@ -13,7 +13,7 @@ class DashboardSlidableTableViewCell: UITableViewCell {
     static let identifier = "DashboardSlidable"
     
     var sectionIndex: Int = 0
-    var proceduresController = DashboardProceduresController()
+    var actions: [Int: () -> Void] = [:]
     
     var controllableObject: BLEControllable? {
         didSet {
@@ -77,7 +77,7 @@ extension DashboardSlidableTableViewCell: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Haptic.current.beep()
-        if let action = proceduresController.actions[indexPath.row] {
+        if let action = actions[indexPath.row] {
             action()
         } else if let controllable = controllableObject?.controls[indexPath.row],
             let cmd = controllable.outgoingCommand,

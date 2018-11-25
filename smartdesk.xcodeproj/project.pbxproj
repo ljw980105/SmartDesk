@@ -62,6 +62,7 @@
 		04B6694C2170100D00B8795A /* TimeoutableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6694B2170100D00B8795A /* TimeoutableOperation.swift */; };
 		04CDD05821A87E7D0081A86A /* DashboardProceduresController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CDD05721A87E7D0081A86A /* DashboardProceduresController.swift */; };
 		04CDD05921A882A30081A86A /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B66940216DBD3300B8795A /* BLEManager.swift */; };
+		04CDD05B21A913F50081A86A /* Dashboard+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CDD05A21A913F50081A86A /* Dashboard+Actions.swift */; };
 		04EB8785218E2D5E00CD2344 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8784218E2D5E00CD2344 /* Common.swift */; };
 		04EB878B218E44B700CD2344 /* TransitionAnimation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 04EB878A218E44B700CD2344 /* TransitionAnimation2.json */; };
 		04F48CD621A3A36300EB9A5B /* LightSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F48CD521A3A36300EB9A5B /* LightSettings.swift */; };
@@ -134,6 +135,7 @@
 		04B66949216EA2E300B8795A /* BLEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEError.swift; sourceTree = "<group>"; };
 		04B6694B2170100D00B8795A /* TimeoutableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutableOperation.swift; sourceTree = "<group>"; };
 		04CDD05721A87E7D0081A86A /* DashboardProceduresController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardProceduresController.swift; sourceTree = "<group>"; };
+		04CDD05A21A913F50081A86A /* Dashboard+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dashboard+Actions.swift"; sourceTree = "<group>"; };
 		04EB8784218E2D5E00CD2344 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		04EB878A218E44B700CD2344 /* TransitionAnimation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TransitionAnimation2.json; sourceTree = "<group>"; };
 		04F48CD521A3A36300EB9A5B /* LightSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSettings.swift; sourceTree = "<group>"; };
@@ -174,7 +176,7 @@
 				048E3EC82179471A00217DD8 /* SignalStrengthViewController.swift */,
 				043E1C8021713BA100B1ED56 /* DashboardSlidableTableViewCell.swift */,
 				043E1C8D2171652700B1ED56 /* BLEControlCollectionViewCell.swift */,
-				04CDD05721A87E7D0081A86A /* DashboardProceduresController.swift */,
+				04CDD05A21A913F50081A86A /* Dashboard+Actions.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -287,6 +289,7 @@
 		04B66946216EA26A00B8795A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				04CDD05721A87E7D0081A86A /* DashboardProceduresController.swift */,
 				0437BB762192BD5100AD4D7B /* BiometricsController.swift */,
 				043E1C7C2171383000B1ED56 /* DashboardHeaderTableViewCell.swift */,
 				043E1C7D2171383000B1ED56 /* DashboardHeaderTableViewCell.xib */,
@@ -556,6 +559,7 @@
 				04F48CDB21A3C88600EB9A5B /* LightSettings.xcdatamodeld in Sources */,
 				045073992182DA3400470900 /* ColorPickerView.swift in Sources */,
 				0437BB712192857100AD4D7B /* WhiteboardMovement.swift in Sources */,
+				04CDD05B21A913F50081A86A /* Dashboard+Actions.swift in Sources */,
 				0465A4562180C1C000CA825A /* LightControlSliderTableViewCell.swift in Sources */,
 				04B66941216DBD3300B8795A /* BLEManager.swift in Sources */,
 				043E1C8E2171652700B1ED56 /* BLEControlCollectionViewCell.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 /**
  * Manages the closure action blocks for the collection views located in the table view cell.
+ * - Not in use currently.
  */
 class DashboardProceduresController: NSObject {
     weak var parentNavigationController: UINavigationController?
