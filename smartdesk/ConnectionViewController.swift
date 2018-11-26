@@ -12,6 +12,10 @@ import Lottie
 class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var optionsButton: UIButton!
+    
+    // MARK: View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,8 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
         connectButton.isHidden = true
         connectButton.layer.cornerRadius = 10.0
         connectButton.clipsToBounds = true
+        optionsButton.isHidden = true
+        versionLabel.isHidden = true
         
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: { [weak self] in
             var newFrame = self?.logo.frame
@@ -29,6 +35,10 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
             }
         }, completion: { [weak self] _ in
             self?.connectButton.isHidden = false
+            self?.optionsButton.isHidden = false
+            self?.versionLabel.isHidden = false
+            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+            self?.versionLabel.text = "v\(version)"
             //strongSelf.disableUI()
             BLEManager.current.delegate = self
         })
@@ -44,6 +54,22 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
         UserDefaults.setTransitionAnimationNeeded()
         BLEManager.current.connect()
     }
+    
+    @IBAction func showOptions(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Force Connect", style: .default,
+                                            handler: { [weak self] _ in
+            if BLEManager.current.delegate == nil {
+                BLEManager.current.delegate = self
+            }
+            self?.disableUI()
+            UserDefaults.setTransitionAnimationNeeded()
+            BLEManager.current.forceConnect()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
     
     // MARK: - BLEManagerDelegate
     
@@ -64,6 +90,8 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
         connectButton.isEnabled = false
         connectButton.alpha = 0.5
         connectButton.setTitle("Connecting", for: .normal)
+        optionsButton.isEnabled = false
+        optionsButton.alpha = 0.5
     }
     
     private func enableUI() {
@@ -71,6 +99,8 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
         connectButton.isEnabled = true
         connectButton.alpha = 1
         connectButton.setTitle("Connect", for: .normal)
+        optionsButton.isEnabled = true
+        optionsButton.alpha = 1
     }
     
     // MARK: Navigation

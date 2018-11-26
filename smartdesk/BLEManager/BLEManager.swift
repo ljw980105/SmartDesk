@@ -65,6 +65,16 @@ class BLEManager: NSObject {
         }
     }
     
+    /**
+     * Bypass the normal connection procedure and continue to the dashboard. Nothing will work
+     * obviously.
+     */
+    func forceConnect() {
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.readyToSendData()
+        }
+    }
+    
     func send(string: String) {
         guard let peripheral = smartDesk, let characteristic = smartDeskDataPoint else {
             print("Not ready to send data")

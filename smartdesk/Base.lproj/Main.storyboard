@@ -40,10 +40,33 @@
                                     <action selector="connect:" destination="T6q-VT-uG0" eventType="touchUpInside" id="dTQ-UF-AGu"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="7oS-WB-AVg">
+                                <rect key="frame" x="146" y="523" width="83.5" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vx.x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ael-BT-ws6">
+                                        <rect key="frame" x="0.0" y="0.0" width="24.5" height="28"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFW-MR-Xbq">
+                                        <rect key="frame" x="35.5" y="0.0" width="48" height="28"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <state key="normal" title="Options">
+                                            <color key="titleColor" red="0.090196078430000007" green="0.14901960780000001" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showOptions:" destination="T6q-VT-uG0" eventType="touchUpInside" id="pQs-1I-1Tf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Hnq-fS-m1I" firstAttribute="centerY" secondItem="oz3-CY-xM7" secondAttribute="centerY" constant="-100" id="4MB-JQ-FBc"/>
+                            <constraint firstItem="7oS-WB-AVg" firstAttribute="top" secondItem="ghr-Oz-tc3" secondAttribute="bottom" constant="10" id="IH1-F6-MDu"/>
+                            <constraint firstItem="7oS-WB-AVg" firstAttribute="centerX" secondItem="oz3-CY-xM7" secondAttribute="centerX" id="KQH-BL-msb"/>
                             <constraint firstItem="ghr-Oz-tc3" firstAttribute="centerX" secondItem="oz3-CY-xM7" secondAttribute="centerX" id="MwJ-x1-EWW"/>
                             <constraint firstItem="oz3-CY-xM7" firstAttribute="bottom" secondItem="ghr-Oz-tc3" secondAttribute="bottom" multiplier="13:10" id="drs-rg-Tz1"/>
                             <constraint firstItem="Hnq-fS-m1I" firstAttribute="centerX" secondItem="oz3-CY-xM7" secondAttribute="centerX" id="zOC-8a-5Pn"/>
@@ -53,6 +76,8 @@
                     <connections>
                         <outlet property="connectButton" destination="ghr-Oz-tc3" id="8CV-ZJ-3Vl"/>
                         <outlet property="logo" destination="Hnq-fS-m1I" id="IlM-wn-kg2"/>
+                        <outlet property="optionsButton" destination="RFW-MR-Xbq" id="rYG-3r-Sxw"/>
+                        <outlet property="versionLabel" destination="Ael-BT-ws6" id="kAj-ex-gcg"/>
                         <segue destination="Fkl-01-ytL" kind="presentation" identifier="successfulConnection" modalTransitionStyle="crossDissolve" id="x1F-Gz-X87"/>
                     </connections>
                 </viewController>
