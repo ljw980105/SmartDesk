@@ -24,8 +24,8 @@ class DashboardController: NSObject {
     }
     
     /**
-     * Generates a dictionary with the index as key and longProcessCommands
-     * or LightControlsOptions as the dictionary's value.
+     * Generates a dictionary with the index as key and either `longProcessCommands`
+     * or `LightControlsOptions` as the dictionary's value.
      * - the value of the dictionary can be
      *      - `(String, String)` for `longProcessCommands`
      *      - `[LightControlOptions: String]` for `lightControl`

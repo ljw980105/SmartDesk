@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		021BE8F66C12F0768C66AD20 /* Pods_smartdesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0113A6F41CA8856D3668EBA /* Pods_smartdesk.framework */; };
+		04005F8321AFC3170076AF53 /* GearAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04005F8221AFC3170076AF53 /* GearAnimation.json */; };
 		0433C2CB21A31F97007BC285 /* LightControlPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433C2CA21A31F97007BC285 /* LightControlPersistenceManager.swift */; };
 		0437BB712192857100AD4D7B /* WhiteboardMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB702192857100AD4D7B /* WhiteboardMovement.swift */; };
 		0437BB7321928CB000AD4D7B /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437BB7221928CB000AD4D7B /* Lock.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		03503663F4635E9E6339141C /* Pods-smartdesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartdesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smartdesk/Pods-smartdesk.debug.xcconfig"; sourceTree = "<group>"; };
+		04005F8221AFC3170076AF53 /* GearAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GearAnimation.json; sourceTree = "<group>"; };
 		0433C2CA21A31F97007BC285 /* LightControlPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightControlPersistenceManager.swift; sourceTree = "<group>"; };
 		0437BB702192857100AD4D7B /* WhiteboardMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboardMovement.swift; sourceTree = "<group>"; };
 		0437BB7221928CB000AD4D7B /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		04EB877A218D5F0C00CD2344 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				04005F8221AFC3170076AF53 /* GearAnimation.json */,
 				045A56B121A677BA00C75E3C /* LaunchAnimation.json */,
 				045A56AF21A64B2100C75E3C /* LogoAnimation.json */,
 				04EB878A218E44B700CD2344 /* TransitionAnimation2.json */,
@@ -428,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04005F8321AFC3170076AF53 /* GearAnimation.json in Resources */,
 				0465A4472180162100CA825A /* LightControlTableViewController.xib in Resources */,
 				04B6692A216DBB4F00B8795A /* LaunchScreen.storyboard in Resources */,
 				04B66927216DBB4F00B8795A /* Assets.xcassets in Resources */,

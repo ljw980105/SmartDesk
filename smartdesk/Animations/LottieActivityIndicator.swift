@@ -12,15 +12,12 @@ import Lottie
 class LottieActivityIndicator: UIView {
     private var animationView: LOTAnimationView?
     private var button: UIButton?
-    private var startCommand: String?
-    private var endCommand: String?
-    private var completion: (() -> Void)?
-    
-    func configure(startCommand: String, endCommand: String, completion: (() -> Void)? = nil) {
-        self.startCommand = startCommand
-        self.endCommand = endCommand
-        self.completion = completion
-    }
+    var startCommand: String?
+    var endCommand: String?
+    var completion: (() -> Void)?
+    var animationName: String? = "LogoAnimation"
+    /** The ratio of width / height. Defaults to 1.0. */
+    var aspectRatio: CGFloat = 1.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,12 +41,21 @@ class LottieActivityIndicator: UIView {
         guard let superView = superview else { return }
         self.alpha = 0
         addShadow()
-        let width = Int(self.frame.width * 0.888)
-        let height = Int(self.frame.height * 0.666)
-        animationView = LOTAnimationView(name: "LogoAnimation")
+        let width: Int, height: Int, centerOffsetRatio: CGFloat
+        if aspectRatio <= 1 {
+            height = Int(self.frame.height * 0.666)
+            width = Int(self.frame.height * 0.666 * aspectRatio)
+            centerOffsetRatio = 0.111 // should be 0.111
+        } else { // > 1
+            width = Int(self.frame.width * 0.888)
+            height = Int(self.frame.width * 0.888 / aspectRatio) // smaller than 0.888
+            centerOffsetRatio = (0.888 - 0.888 / aspectRatio) / 2
+        }
+        guard let animationName = animationName else { fatalError("No Animation Name Provided") }
+        animationView = LOTAnimationView(name: animationName)
         animationView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
         animationView?.center = CGPoint(x: superView.center.x,
-                                        y: superView.center.y - frame.height * 0.111)
+                                        y: superView.center.y - frame.height * centerOffsetRatio)
         animationView?.loopAnimation = true
         animationView?.layer.cornerRadius = 20.0
         animationView?.clipsToBounds = true
@@ -89,11 +95,12 @@ class LottieActivityIndicator: UIView {
     }
     
     private func removeSubviews() {
-        animationView?.stop()
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.animationView?.alpha = 0
             self?.alpha = 0
             self?.button?.alpha = 0
         }, completion: { [weak self] _ in
+            self?.animationView?.stop()
             self?.animationView?.removeFromSuperview()
             self?.button?.removeFromSuperview()
             self?.removeFromSuperview()

@@ -190,6 +190,7 @@ extension BLEManager: CBPeripheralDelegate {
         // listen for values sent from the BLE module
         smartDesk?.setNotifyValue(true, for: smartDeskDataPoint!)
         // send a command to wake up the BLE module
+        send(string: OutgoingCommands.whiteboardLightToggle)
         send(string: OutgoingCommands.deskLightToggle)
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.readyToSendData()

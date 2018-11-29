@@ -63,6 +63,9 @@ class DashboardViewController: UIViewController, BLEManagerDelegate {
     func didReceiveError(error: BLEError?) {
         dismiss(animated: true) {
             error?.showErrorMessage()
+            if let error = error, case BLEError.peripheralDisconnected = error {
+                LightControlPersistenceManager.reset()
+            }
         }
         signalStrengthTimer?.invalidate()
         BLEManager.current.delegate = nil

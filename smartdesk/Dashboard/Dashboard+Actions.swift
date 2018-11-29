@@ -26,7 +26,11 @@ extension DashboardViewController {
                     let animationView =
                         LottieActivityIndicator(frame: CGRect(x: 0, y: 0,
                                                               width: animSize, height: animSize))
-                    animationView.configure(startCommand: longProcesses.0, endCommand: longProcesses.1) {
+                    animationView.startCommand = longProcesses.0
+                    animationView.endCommand = longProcesses.1
+                    animationView.animationName = "GearAnimation"
+                    animationView.aspectRatio = 1
+                    animationView.completion = {
                         strongSelf.prepareForLottieAnimation(dimAndDisable: false)
                     }
                     strongSelf.view.addSubview(animationView)
