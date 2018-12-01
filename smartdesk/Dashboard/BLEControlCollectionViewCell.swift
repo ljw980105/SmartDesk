@@ -22,8 +22,8 @@ class BLEControlCollectionViewCell: UICollectionViewCell {
         var table: [String: UIColor] = [:]
         table["On"] = onColor
         table["Off"] = offColor
-        table["Erase"] = offColor
-        table["No-erase"] = onColor
+        table["Eraser On"] = onColor
+        table["Eraser Off"] = offColor
         table["Locked"] = UIColor.red
         table["Unlocked"] = onColor
         table["Front"] = UIColor.purple

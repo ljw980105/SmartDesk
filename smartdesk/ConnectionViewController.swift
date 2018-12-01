@@ -67,6 +67,8 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
             BLEManager.current.forceConnect()
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.popoverPresentationController?.sourceView = optionsButton
+        actionSheet.popoverPresentationController?.sourceRect = optionsButton.bounds
         present(actionSheet, animated: true, completion: nil)
     }
     
@@ -79,6 +81,11 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
     }
     
     func readyToSendData() {
+        // send a command to wake up the BLE module
+        BLEManager.current.send(string: OutgoingCommands.whiteboardLightToggle)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            BLEManager.current.send(string: OutgoingCommands.deskLightToggle)
+        }
         enableUI()
         BLEManager.current.delegate = nil
         performSegue(withIdentifier: "successfulConnection", sender: self)

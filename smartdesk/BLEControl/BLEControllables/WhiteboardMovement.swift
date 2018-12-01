@@ -13,8 +13,8 @@ class WhiteboardMovement: NSObject, BLEControllable {
     var controls: [BLEControlEntity] =
         [BLEControlEntity(name: "Up", longProcessCommands: (OutgoingCommands.whiteboardUp,OutgoingCommands.whiteboardStop)),
          BLEControlEntity(name: "Down", longProcessCommands: (OutgoingCommands.whiteboardDown,OutgoingCommands.whiteboardStop)),
-         BLEControlEntity(name: "Erase", outgoingCommand: OutgoingCommands.whiteboardEraseToggle,
+         BLEControlEntity(name: "Eraser Off", outgoingCommand: OutgoingCommands.whiteboardEraseToggle,
                           incomingCommands: [.whiteboardEraseOff, .whiteboardEraseOn],
-                          switchLabels: ("Erase", "No-erase"))]
+                          switchLabels: ("Eraser Off", "Eraser On"))]
     
 }
