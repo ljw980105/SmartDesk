@@ -40,6 +40,7 @@ class ConnectionViewController: UIViewController, BLEManagerDelegate, UIViewCont
             let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
             self?.versionLabel.text = "v\(version)"
             //strongSelf.disableUI()
+            BLEManager.current.bleModuleName = "ADC"
             BLEManager.current.delegate = self
         })
     }

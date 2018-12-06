@@ -19,6 +19,8 @@ class BLEManager: NSObject {
     
     weak var delegate: BLEManagerDelegate?
     
+    var bleModuleName: String = ""
+    
     private var bluetoothManager: CBCentralManager!
     private var smartDesk: CBPeripheral?
     private var smartDeskDataPoint: CBCharacteristic?
@@ -117,7 +119,7 @@ extension BLEManager: CBCentralManagerDelegate {
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print(peripheral.debugDescription)
         // if you rename the ble module, there will be a newline. Be sure to remove it
-        guard peripheral.name?.trimmingCharacters(in: .newlines) == "Hexapi" else { return }
+        guard peripheral.name?.trimmingCharacters(in: .newlines) == bleModuleName else { return }
         smartDesk = peripheral
         bluetoothManager.stopScan()
         bluetoothManager.connect(smartDesk!)
